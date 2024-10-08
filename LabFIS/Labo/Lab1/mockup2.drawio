@@ -1,0 +1,37 @@
+<mxfile host="65bd71144e">
+    <diagram id="0CCN0wXJTtRZbi8F57oW" name="Page-1">
+        <mxGraphModel dx="941" dy="649" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="&lt;font color=&quot;#ffffff&quot;&gt;Eliminazione Account&lt;/font&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.window;align=left;verticalAlign=top;spacingLeft=8;strokeColor2=#008cff;strokeColor3=#c4c4c4;fontColor=#666666;mainText=;fontSize=17;labelBackgroundColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="210" width="550" height="300" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.containers.userMale;strokeColor=#666666;strokeColor2=#008cff;gradientColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="250" width="160" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Annulla" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="440" width="150" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.multiButton;fillColor=#a20025;strokeColor=#6F0000;mainText=;subText=;fontColor=#ffffff;" vertex="1" parent="1">
+                    <mxGeometry x="530" y="440" width="150" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Elimina Account" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.anchor;fontSize=16;fontColor=#ffffff;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="5">
+                    <mxGeometry y="8" width="150" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;&lt;font color=&quot;#d6d6d6&quot; style=&quot;font-size: 10px;&quot;&gt;Questa azione è irreversibile&lt;/font&gt;&lt;/span&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.anchor;fontSize=12;fontColor=#ffffff;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="5">
+                    <mxGeometry y="30" width="150" height="10" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="verticalLabelPosition=bottom;shadow=0;align=center;html=1;verticalAlign=top;strokeWidth=7;shape=mxgraph.mockup.markup.line;strokeColor=#FFFFFF;fontSize=10;fontColor=#D6D6D6;perimeterSpacing=0;" vertex="1" parent="1">
+                    <mxGeometry x="340" y="250" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="verticalLabelPosition=bottom;shadow=0;align=center;html=1;verticalAlign=top;strokeWidth=2;shape=mxgraph.mockup.markup.line;strokeColor=#FFFFFF;fontSize=10;fontColor=#D6D6D6;" vertex="1" parent="1">
+                    <mxGeometry x="340" y="300" width="330" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="" style="verticalLabelPosition=bottom;shadow=0;align=center;html=1;verticalAlign=top;strokeWidth=2;shape=mxgraph.mockup.markup.line;strokeColor=#FFFFFF;fontSize=10;fontColor=#D6D6D6;" vertex="1" parent="1">
+                    <mxGeometry x="340" y="320" width="170" height="20" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
