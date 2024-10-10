@@ -1,0 +1,1 @@
+Aggiungere casistica in cui ci si dimentica la password all'interno degli scenari 
