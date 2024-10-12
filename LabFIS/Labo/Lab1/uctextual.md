@@ -36,35 +36,23 @@ Il caso d'uso permette all'utente di effettuare il login al proprio account.
 
         3.4.1. Viene mostrato un messaggio di errore.
 
-4. Se l'utente sceglie di fare il login con email e password, ma non si ricorda la password:
-
-    4.1 L'utente clicca il tasto "Password Dimenticata"
-
-    4.2 L'utente inserisce una nuova password 
-
-    4.3 L'utente inserisce nuovamente la password 
-
-    4.4 Se le due password non corrispondono 
-
-        4.4.1 Viene mostrato un messaggio di errore
-
-5. Se l'utente sceglie di effettuare il login con Google:
+4. Se l'utente sceglie di effettuare il login con Google:
             
-    5.1. L'utente clicca sul logo di Google, nella sezione "Fast Login" .
+    4.1. L'utente clicca sul logo di Google, nella sezione "Fast Login" .
+        
+    4.2. Se l'utente non ha effettuato il login con successo:
+
+        4.2.1. Viene mostrato un messaggio di errore.
+
+5. Se l'utente sceglie di effettuare il login con Facebook:
+                
+    5.1. L'utente clicca sul logo di Facebook, nella sezione "Fast Login".
         
     5.2. Se l'utente non ha effettuato il login con successo:
-
+    
         5.2.1. Viene mostrato un messaggio di errore.
 
-6. Se l'utente sceglie di effettuare il login con Facebook:
-                
-    6.1. L'utente clicca sul logo di Facebook, nella sezione "Fast Login".
-        
-    6.2. Se l'utente non ha effettuato il login con successo:
-    
-        6.2.1. Viene mostrato un messaggio di errore.
-
-7. Il popup viene chiuso e l'utente autenticato viene reindirizzato alla pagina precedentemente visitata.
+6. Il popup viene chiuso e l'utente autenticato viene reindirizzato alla pagina precedentemente visitata.
 
 
 ## Postcondizioni:
@@ -73,7 +61,8 @@ Il caso d'uso permette all'utente di effettuare il login al proprio account.
 ## Sequenza degli eventi alternativa:
 - Se l'utente decide di annullare l'operazione di login, l'operazione fallisce e l'utente rimane non autenticato.
 
-# 
+- Se l'utente clicca su "Password Dimenticata" viene effettuato il reset della password (PasswordReset)
+
 
 # Caso d'Uso: CancellazioneAccount
 
