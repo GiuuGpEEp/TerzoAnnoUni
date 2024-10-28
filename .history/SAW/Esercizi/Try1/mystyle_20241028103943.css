@@ -1,0 +1,124 @@
+body{
+    background:  
+    linear-gradient(to left, transparent 50%, #e8e8e8 95%), url('python.jpg');
+    background-size: cover;
+}
+ 
+hr{ /*Linea*/
+    border: 2px solid #e1e1e1; /* Spessore, stile e colore del bordo */
+    margin: 20px 0; /* Margini superiore e inferiore */
+}
+
+/*creo una classe contenuto per separare il contenuto dallo sfondo*/
+
+/*.contenuto {
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid black;
+} --> Con questa aggiungo uno "sfondo", ma solo al contenuto e lascio in background il precedente */
+
+fieldset {
+    /*max-width: 10%; Posso rimuovere il max-width se presente float*/
+    border-radius: 10px;
+    border: 5px dotted rgb(15, 15, 15);
+    text-align: justify;
+    float: left;
+    margin-right: 30px;
+}
+
+input[type*="text"]{    /*Ho dato una proprietà CSS solo all'attributo type = text */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #002ead;
+}
+
+input[type*="password"]{
+    width: 183px;
+    height: 20px;
+}
+
+h1{
+    text-align: center;
+    font-size: 44px;
+    text-shadow: 10px 0px 5px rgb(165, 161, 161); /*50px: Spostamento orizzontale dell'ombra (verso destra di 50px). 
+                                          0px: Spostamento verticale (nessun spostamento verso l'alto o il basso).
+                                          5px: (opzionale) Il raggio di sfocatura dell'ombra. Più è alto, più morbida sarà l'ombra
+                                          white: Il colore dell'ombra.*/
+}
+
+legend {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 6px; /* Crea spaziatura tra il contenuto e il bordo*/
+}
+
+button{
+    background-color: azure;
+    margin-top: 10px ;
+    width: 170px;
+    height: 35px;
+    background-color: #0a0a23;
+    color: #fff;
+    transition: 0.1s;
+}
+
+button:hover {
+    background-color: #002ead;
+    
+}
+
+a:link {
+    color: blue;
+  }
+
+a:visited{
+    color: red;
+}
+
+.ImmagineAnimata{
+    margin-right: 20px;
+    float:left;
+    margin-bottom: 20px;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+    /*transition-delay: 1s;  --> delay da quando ci passa il mouse rispetto a quando parte l'animazione*/ 
+}
+
+.ImmagineAnimata:hover{
+    transform: scale(2) rotate(180deg);
+    /*posso applicare un ulteriore transizione dopo tot tempo, ma serve JavaScript*/   
+}
+
+
+#testoSottoImmagineErosso{
+    clear: both;
+    color:rgb(0, 0, 0);
+}
+
+.testoBianco{
+    text-align: justify;
+    color: rgb(0, 0, 0);
+}
+
+#FixedTest{
+    position: fixed;
+    color: white;
+}
+
+#StaticTest{
+    position: static;
+    color: white;
+}
+
+#AbsoluteTest{
+    position: absolute;
+    color: white;
+}
+
+#RelativeTest{
+    position: relative;
+    color: white;
+}
+
+
+
