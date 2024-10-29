@@ -18,18 +18,20 @@ li::first-line{
     left: 200px;
 }
 
-.immagine-animata{
+#immagine-animata{
+    
+    float: left;
     transition: all 0.5s ease-out;
 }
 
-.immagine-animata:hover {
+#immagine-animata:hover {
     transform: rotate(180deg);
     
 }
 
-p::first-line{
+/*p::first-line{
     color: blue;
-}
+} --> Al posto di usare il first line e cambiare il colore della prima riga*/ 
 
 
 /* esempi di custom properties; per funzionare devo aggiungere un footer*/
@@ -44,4 +46,21 @@ header{
     color: #fff;
     padding: 0px;
     text-align: center;
+}
+
+#titoloBlu{ /* Questo è un id e può essere usato solo su un singolo elemento, se voglio usare questo stile per più elementi devo usare una classe */
+    color:blue;
+    font-weight: bold;
+}
+
+.titoloBlu{
+    color: blue;
+    font-weight: bold;
+}
+
+.testoSottoImmagine{
+    clear:both;
+}
+#Palle{
+    font-size: 22px;
 }
