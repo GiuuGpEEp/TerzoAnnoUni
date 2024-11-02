@@ -1,0 +1,15 @@
+body{
+    background:  
+    linear-gradient(to left, transparent 50%, #e8e8e8 95%), url('python.jpg');
+    background-size: cover;
+}
+
+button{
+    width: 100px;
+    height: 25px;
+    border-radius: 15px;
+    border-color: #2e6d349e;
+    border-style: solid;
+    border-width: 2px;
+    background-color: grey;
+}
