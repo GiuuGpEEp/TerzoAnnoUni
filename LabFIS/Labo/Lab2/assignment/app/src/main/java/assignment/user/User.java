@@ -2,20 +2,25 @@ package assignment.user;
 
 
 import java.util.List;
+import java.util.Objects;
+import java.util.logging.Logger;
+
 
 import assignment.cart.Cart;
 
-import java.util.ArrayList; 
+import java.util.ArrayList;
+import java.util.Arrays; 
 
 public class User {
     private String userID; 
     private String username; 
     private String firstname; 
     private String lastname;
-    private List<String> titles = new ArrayList<String>();
+    private List<String> titles = new ArrayList<>();
     private String[] roles = new String[5];
     private boolean accountActive;
     private Cart cart;
+    private Logger logger = Logger.getLogger(getClass().getName());
 
     public User(String userID, String username, String firstname, String lastname, 
                 boolean accountActive, List<String> titles, String[] roles) {
@@ -65,13 +70,11 @@ public class User {
     }
 
     public boolean isActive(){
-        if(accountActive)
-            return true;
-        return false;
+        return isAccountActive();
     }
 
     public boolean deactivateAccount(String id) {
-        if (accountActive && this.userID == id) {
+        if (accountActive && this.userID != null && Objects.equals(this.userID, id)) {
             accountActive = false;
             return true;
         }
@@ -79,16 +82,16 @@ public class User {
     }
 
     public boolean isEquals(User u){
-        return u.userID == this.userID;
+        return u.userID != null && u.userID.equals(this.userID);
     }
 
     public void printUserInfo() {
-        System.out.println("User Info: " + firstname + " " + lastname + " (Username: " + username + ")");
+        logger.Info("User Info: " + firstname + " " + lastname + " (Username: " + username + ")");
     }
 
-    public void linkCart(Cart cart) throws Exception{
+    public void linkCart(Cart cart){
         if(cart == null)
-            throw new Exception();
+            throw new NullPointerException();
         this.cart = cart;
     }
 
@@ -97,12 +100,12 @@ public class User {
     }
 
     public String printAllRoles(){
-        return roles.toString();
+        return Arrays.toString(roles);
     }
 
-    public void PrintEveryRole(){
-        for (int i = roles.length; i > 0; i++){
-            System.out.println(roles[i]);
+    public void printEveryRole(){
+        for (int i = roles.length; i > 0; i--){
+            logger.info(roles[i]);
         }
     }
 
