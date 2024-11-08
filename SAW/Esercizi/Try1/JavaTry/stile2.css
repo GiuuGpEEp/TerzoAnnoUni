@@ -20,8 +20,11 @@ button:hover{
 }
 
 #Indietro{
-    width: 150px;
-    height: 25px;
+    width: 200px;
+    height: 35px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
 }
 
 #prova{
@@ -32,4 +35,22 @@ button:hover{
 .testButton{
     margin-top: 13px;
     margin-right: 5px;
+}
+
+@keyframes fadeIn { /*definisco un'animazione*/
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+#benvenuto{
+    top: 10px;
+    color:#0c4418;
+    animation: 2s fadeIn ease-in forwards;
+}
+
+hr{
+    border: 1px solid #0c2e11; /* Spessore, stile e colore del bordo */
+    margin: 0 0; /* Margini superiore e inferiore */
+    filter: blur(2px);
 }
