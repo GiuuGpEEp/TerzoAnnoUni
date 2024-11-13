@@ -66,9 +66,8 @@ hr{
     position: fixed;
     right: 10px;
     width: 450px; 
-    height: 250px; 
+    height: 250px;
+    border: 2px solid #164f0b; 
     margin-top: 20px;
-    border: 0px;
-    border-radius: 20%;
-    animation: 2s fadeIn ease-in forwards;
+    border-radius
 }

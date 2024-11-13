@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function() { //inserendo questo ho
     let frame = document.getElementById("closeButton");
     frame.addEventListener("click",() =>{
         document.getElementById("targetIframe").src = "about:blank";
-        document.getElementById("targetIframe").style.border = "none";
+        document.getElementById("targetIframe").style.border = none;
     })
 
 

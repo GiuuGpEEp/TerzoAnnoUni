@@ -71,13 +71,12 @@ document.addEventListener("DOMContentLoaded", function() { //inserendo questo ho
             "popupWindow",                  
             "width=600,height=400,left=100,top=100,popup=true"   
         );
-        document.getElementById("targetIframe").style.border = "2px solid #164f0b";
+        document.getElementById("targetIframe").style.
     });
 
     let frame = document.getElementById("closeButton");
     frame.addEventListener("click",() =>{
         document.getElementById("targetIframe").src = "about:blank";
-        document.getElementById("targetIframe").style.border = "none";
     })
 
 
