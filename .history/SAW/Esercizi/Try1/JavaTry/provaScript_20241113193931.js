@@ -73,10 +73,8 @@ document.addEventListener("DOMContentLoaded", function() { //inserendo questo ho
         );
     });
 
-    let frame = document.getElementById("closeButton");
-    frame.addEventListener("click",() =>{
-        document.getElementById("targetIframe").src = "about:blank";
-    })
+    let frame = document.getElementById("targetIframe");
+    frame.addEventListener("error")
 
 
 });

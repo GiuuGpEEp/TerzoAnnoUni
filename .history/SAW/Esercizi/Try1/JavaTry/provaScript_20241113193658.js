@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() { //inserendo questo ho
         console.warn("Elemento con id 'benvenuto' non trovato nel DOM.");
     }
 
-    let calc = document.getElementById("calcButton");
+    let calc = this.getElementById("calcButton");
     calc.addEventListener("click", () => {
         window.open(
             "../../Calculator/calculator.html",
@@ -73,12 +73,9 @@ document.addEventListener("DOMContentLoaded", function() { //inserendo questo ho
         );
     });
 
-    let frame = document.getElementById("closeButton");
-    frame.addEventListener("click",() =>{
-        document.getElementById("targetIframe").src = "about:blank";
-    })
 
 
+    
 });
 
 
