@@ -69,8 +69,8 @@ hr{
     position: fixed;
     top: 75px;
     right: 10px;
-    width: 450px; 
-    height: 250px; 
+    width: 700px; 
+    height: 300px; 
     margin-top: 20px;
     border: 0px;
     border-radius: 20%;
@@ -91,7 +91,6 @@ hr{
 
 #testoClessidra{
     padding: 15px;
-    text-decoration: dotted;
     /*animation: 2s fadeIn ease-in forwards; --> non gli do l'animazione, ma l'aggiungo in seguito in JS*/
     opacity: 0;
 }

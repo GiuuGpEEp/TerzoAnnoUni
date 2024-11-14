@@ -34,17 +34,46 @@
 	font-weight: bold;
 	border-radius: 10%;
   }
+
+  #textForm{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 10px;
+  }
+
+  #buttonForm{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    gap: 30px;
+  }
+
+  .campiTesto{
+    width: 10%;
+    text-align: center;
+  }
+
   </style>
 </head>
 
 <body>
     <h1> New Calculator </h1>
-<!-- Complete the HTML -->
+
 <div class="container">
-    <button type="button" id="sum" class="btn">+</button>
-    <button type="button" id="sub" class="btn">-</button>
-	<button type="button" id="mult" class="btn">*</button>
-	<button type="button" id="divi" class="btn">/</button>
+    <form method="post" name="calculator">
+        <div id="textForm">
+            <input type="text" name="Val1" id="Val1" class="campiTesto" placeholder="Val1"> <!-- Placeholder è il testo presente nel riquadro prima di scrivere-->
+            <input type="text" name="Val2" id="Val2" class="campiTesto" placeholder="Val2">
+        </div>
+        <div id="buttonForm">
+            <input type="submit" name="sum" value="+" id="sum" class="btn">
+            <input type="submit" name="sub" value="-" id="sub" class="btn">
+	        <input type="submit" name="mult" value="*" id="mult" class="btn">
+	        <input type="submit" name="divi" value="/" id="divi" class="btn">
+        </div>
+        <input type="text" name="Res" id="Res" class="campiTesto" placeholder="Tot" disabled>  <!-- Disabled serve per far si che il contenuto di Res non venga modificato dall'utente -->
+    </form>
 </div>
 
 
