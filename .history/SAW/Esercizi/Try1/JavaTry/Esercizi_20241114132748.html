@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>EsPaxi</title>
+        <link rel="stylesheet" type="text/css" href="stile2.css">
+        <script src="provaScript.js"></script>
+    </head>
+
+    <body>
+        <h3 id="benvenuto"> Benvenuto </h3>
+        <button id="Indietro" type="button" onclick="goHome()">Torna alla Home</button>
+        <hr>
+        <h1> Alcuni Esercizi su Java </h1>
+        <p id="prova">
+            Scaricare Mysql e far comunicare mysql e php. (in seguito da installare phpAdmin)
+        </p>
+        <button class="testButton" type="button" onclick="modificaTesto()">Prova</button>
+        <button class="testButton" type="button" onclick="annulla()">Annulla</button>
+        <br>
+        <br>
+        <div id="tastiOpenClose">
+            <button type="button" id="calcButton"> Clicca per utilizzare la calcolatrice </button> <!-- Posso aggiungere onclick="window.open(...)", oppure farlo con un eventlistener nel file js -->
+            <button type="button" id="closeButton"> Termina </button> <!-- Idea: metti l'animazione di una clessidra che gira e appena finisce di girare chiudi calc-->
+        </div>
+        <iframe title="Main Calculator" name="targetIframe" id="targetIframe"> </iframe>
+        <img src="Clessidra.jpg" alt="Clessidra" width="150" height="170" id="ImmagineAnimata">
+        <p id="testoClessidra"> Appena la clessidra termina la rotazione la calcolatrice si chiude
+            <br>
+            In alternativa premere il tasto termina
+        </p>
+    </body>
+</html>
