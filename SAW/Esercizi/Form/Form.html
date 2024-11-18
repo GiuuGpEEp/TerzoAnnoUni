@@ -2,9 +2,13 @@
 <html lang="en">
     <head>
         <title>Form</title>
+        <script src="FormJS.js"></script>
         <style>
             h1{
                 text-align: center;
+            }
+            hr{
+                margin-bottom: 40px; 
             }
             form{
                 width: 300px; /* Larghezza del form */
@@ -39,21 +43,38 @@
               width: 40%;
             }
 
+            .error {
+              color: red;
+              font-size: 0.9em;
+              text-align: center;
+              display: none; /* Nascondere inizialmente i messaggi di errore */
+            }
+
+            input:invalid {
+              border-color: red;
+            }
+
         </style>
     </head>
     <body>
         <h1>Esempio di Form per la Registrazione</h1>
-        <form action="registration.php" method="post">
+        <hr>
+        <form action="registration.php" method="post" onsubmit="return checkdata()" id="myForm">
             <div><label for="firstname">First Name:</label>
             <input type="text" name="firstname" id="firstname"></div>
+            <span class="error" id="errorFirstname">il campo nome è obbligatorio</span> <!-- Per gli errori creo uno span che definirò inizialmente non visibile e in seguito lo renderò visibile-->
             <div><label for="lastname">Last Name:</label>
             <input type="text" name="lastname" id="lastname"></div>
+            <span class="error" id="errorLastname">il campo cognome è obbligatorio</span>
             <div><label for="email">Email:</label>
             <input type="email" name="email" id="email"></div>
+            <span class="error" id="errorMail">Mail obbligatoria</span>
             <div><label for="pass">Password:</label>
             <input type="password" name="pass" id="pass"></div>
+            <span class="error" id="errorPass">Password non valida</span>
             <div><label for="confirm">Confirm Password:</label>
             <input type="password" name="confirm" id="confirm"></div>
+            <span class="error" id="errorConfirm">Le due password non corrispondono</span>
             <input type="submit" name="submit" value="Sign-up">
           </form>
     </body>
