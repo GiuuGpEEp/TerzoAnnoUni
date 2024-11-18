@@ -1,0 +1,19 @@
+body {
+	font-family: Verdana, Arial;
+	color: #000066;
+	margin: 0;
+}
+
+
+.centro {
+	margin: auto;
+	text-align: center;
+}
+
+#pictures {
+	width: 70%;
+	margin: auto;
+	padding: 100px;
+	border: solid gray 4px;
+}
+

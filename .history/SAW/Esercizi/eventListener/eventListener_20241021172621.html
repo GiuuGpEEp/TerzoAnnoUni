@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <title>Rollover</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body class="centro">
+    <br>
+    <br>
+    <h2>Esempio di rollover delle immagini (versione con addEventListener)</h2>
+    <p>Posiziona il mouse sulle immagini</p>
+    <br>
+    <br>
+    <div id="pictures">
+      <img id="im0" src="images/chimico.gif" alt="chimico">
+      <img id="im1" src="images/babbonatale.gif" alt="babbonatale">
+      <img id="im2" src="images/gallo.gif" alt="gallo">
+      <img id="im3" src="images/pupazzoneve.gif" alt="pupazzoneve">
+      <img id="im4" src="images/fiore.gif" alt="fiore">
+    </div>
+
+    <script>
+      let imm = {
+        im0: "images/chimico.gif",
+        im1: "images/babbonatale.gif",
+        im2: "images/gallo.gif",
+        im3: "images/pupazzoneve.gif",
+        im4: "images/fiore.gif",
+        im5: "images/poff.gif",
+      };
+
+      function swap(key, id) {
+        let elem = document.getElementById(id);
+        elem.src = imm[key];
+      }
+
+      const pictures = document.getElementById("pictures");
+
+      pictures.addEventListener("mouseover", function (event) {
+        let img = event.target;
+        if (img.tagName == "IMG") {
+          swap("im5", img.id);
+        }
+          pictures.style.backgroundColor = "yellow";
+      });
+
+      pictures.addEventListener("mouseout", function (event) {
+        let img = event.target;
+        if (img.tagName == "IMG") {
+          swap(img.id, img.id);
+        }
+          pictures.style.backgroundColor = "white";
+      });
+    </script>
+  </body>
+</html>

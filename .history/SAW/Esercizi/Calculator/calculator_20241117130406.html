@@ -81,37 +81,7 @@
 
 /*Al posto che scrivere un gestore di evento per ogni bottone, chiudo tutto in un div e sfrutto il bubbling, per usarne uno unico */
 
-const buttons = document.getElementById("buttonForm");
 
-buttons.addEventListener("click" , function(event){
-  let operator = event.target;
-  event.preventDefault();
-  let num1 = parseFloat(document.getElementById("Val1").value);
-  let num2 = parseFloat(document.getElementById("Val2").value);
-    
-  if (isNaN(num1) || isNaN(num2)) {
-    alert("Per favore, inserisci solo numeri.");
-    return;
-  }
-
-  if(operator.id == "sum"){
-    document.getElementById("Res").value = num1 + num2;
-  }
-
-  if(operator.id == "sub"){
-    document.getElementById("Res").value = num1 - num2;
-  }
-
-  if(operator.id == "mult"){
-    document.getElementById("Res").value = num1 * num2;
-  }
-
-  if(operator.id == "divi"){
-    if(num2 == 0) window.alert("non si può dividere per 0");
-    document.getElementById("Res").value = num1 / num2;
-  }
-
-});
 
 
 </script>
