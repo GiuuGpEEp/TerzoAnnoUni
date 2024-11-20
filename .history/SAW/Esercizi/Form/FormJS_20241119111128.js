@@ -32,9 +32,9 @@ function checkdata(){
 
     if(isValid){
         window.alert("Form inviato!");
+        document.getElementById("myForm").submit();
         //logica php per invio effettivo del form
     }else{
         window.alert("Form non inviato!");
     }
-    return isValid;
 }
