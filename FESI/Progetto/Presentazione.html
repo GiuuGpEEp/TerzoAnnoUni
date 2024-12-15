@@ -8245,8 +8245,8 @@ Le immagini dove la dispersione/distribuzione media dei valori di saturazione è
 <li>Se invece l'istogramma possiede dei valori molto distribuiti, allora calcolo il valore di saturazione in base alla media dei valori presenti, sommata alla distribuzione stessa.</li>
 </ul>
 <p>Da tutte queste operazioni ottengo un valore di saturazione, che userò come limite quando vado a creare la maschera: <br/>
-Le tonalità più chiare in assoluto che voglio rimuovere sono --&gt; [120, (valore calcolato di saturazione), 70] --&gt; dove 120 è il valore minimo di Hue (valore di tonalità più bassa di viola), mentre 70 è il valore minimo di value <br/>
-Le tonalità più scure in assoluto che voglio rimuovere sono --&gt; [185, 255, 255]</p>
+Il range inferiore che voglio rimuovere ha valori --&gt; [120, (valore calcolato di saturazione), 70] --&gt; dove 120 è il valore minimo di Hue (valore di tonalità più bassa di viola), mentre 70 è il valore minimo di value <br/>
+Il range superiore che voglio rimuovere ha valori --&gt; [185, 255, 255]</p>
 </div>
 </div>
 </div>
@@ -8417,7 +8417,7 @@ Una volta trovati i valori adeguati ho costriuto una maschera sfruttando quest'u
 <li><p>Il primo metodo è basato su una sogliatura lavorando in scala di grigi. Il punto forte di questo metodo è il fatto che potenzialmente può funzionare per "qualsiasi dataset". <br/>
 L'unica pecca della mia implementazione è il fatto che la sogliatura purtroppo non è dinamica, quindi io ho dovuto scegliere un valore che si adeguasse al dataset, andando a perdere molto sopratutto sulla precisione; ma se riuscissi a rimuovere un po' il rumore e a trovare una metodologia che mi permetta di calcolare la soglia in modo dinamico, allora questo algoritmo potrebbe essere quasi sempre applicabile, ovviamente con le sue eccezioni.</p>
 </li>
-<li><p>Il secondo metodo invece è molto più preciso, perchè sfrutta i valori HSV delle immagini per rimuovere soltanto le porzioni della malattia interessate. Inoltre ho trovato un modo per calcolare una saturazione minima che vari da immagine a immagine, quindi sfrutto un valore minimo molto più preciso. Tuttavia una pecca di questa metodologia è che può funzionare unicamente per dataset dove il colore della malattia si avvicina di molto al viola. Proprio perchè non vado ad effettuare sogliatura, ma prendo i valori HSV e li uso per costruire una maschera.</p>
+<li><p>Il secondo metodo invece è molto più preciso, perchè sfrutta i valori HSV delle immagini per rimuovere soltanto le porzioni della malattia interessate, inoltre il calcolo della saturazione in modo dinamico, permette all'algoritmo di "adattarsi" da immagine a immagine.Tuttavia una pecca di questa metodologia è che può funzionare unicamente per dataset dove il colore della malattia si avvicina di molto al viola. Proprio perchè non vado ad effettuare sogliatura, ma prendo i valori HSV e li uso per costruire una maschera.</p>
 </li>
 </ul>
 <p>Quindi se io volessi fare un confronto posso affermare che: per questo dataset di immagini il secondo algoritmo mi sembra più preciso generalmente, ma non su tutte le immagini. Inoltre se io volessi estenderne l'utilizzo su un altro dataset, oppure aggiungessi a questo delle immagini dove il colore della malattia si discosta di molto dai valori HSV da me scelti, allora questo metodo non funzionerebbe; mentre il primo algoritmo potrebbe funzionare, se scegliessi un valore di soglia appropriato.</p>
