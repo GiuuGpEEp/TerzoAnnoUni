@@ -1,0 +1,27 @@
+#logo-image-container{
+    flex-basis: 77px;
+    max-width: 77px; 
+    flex-shrink: 1;
+    float: left;
+}
+
+.header{
+    background-color: transparent;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: background 200ms ease-in-out;    
+}
+
+.menu{
+    display: flex;
+    margin-left: auto;
+    min-height: 40px;
+    max-width: 100%;
+    position: relative;
+}
+
+main
+
