@@ -102,7 +102,6 @@ html, body {
 
 #who{
     background-color: #ff7962;
-    border: none;
     margin-top: 20px ;
     width: 170px;
     height: 35px;
@@ -245,7 +244,8 @@ html, body {
 #footerCopy {
     font-size: 0.9em;
     border-top: 1px solid #4a4a4a; /* Linea sopra il testo del copyright */
-    padding: 5px;
+    
+    padding-top: 10px;
     background-color: #151d25;
     color: #ccc; /* Grigio chiaro */
 }
