@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="RegistrationStyle.css">
+    <link rel="icon" href="../Logo32.ico" type="image/x-icon">
+    <script src="RegistrationScript.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <nav class="menu">
+                <ul id="main-menu">
+                    <li class="menu-item">
+                        <a class="menu-link" onclick="goHome()">
+                            <span class="">Home</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="menu-link" href="/contattaci">
+                            <span class="">Corsi</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="menu-link" href="/corsi">
+                            <span class="">Istruttori</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="menu-link" href="../Registration/Form.html">
+                            <span class="">Login</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div class="content">
+            Scheletro del form di registrazione.
+
+            Completa il form con gli attributi aggiuntivi (id, required, pattern, stili, ecc.) ma non cambiare i nomi dei campi e il nome dello script (action="...") che viene invocato una volta inseriti i dati richiesti.
+        
+            <form action="registration.php" method="post">
+                    <input type="text" name="firstname">
+                    <input type="text" name="lastname">
+                    <input type="email" name="email">
+                    <input type="password" name="pass">
+                    <input type="password" name="confirm">
+                    <input type="submit" name="submit" value="...A VOSTRA SCELTA...">
+            </form>
+        </div>
+        <footer class="Sfooter">
+            <div class="footerContent">
+                 <p class="footerContent"><span id="footerTitle"> Hai bisogno di aiuto ? </span></p>
+                 <button id= "footerButton" class="button" type="button" onclick="">Contattaci</button>
+            </div>
+            <div id="footerCopy">
+                <p>© 2024 Parkour Academy. All Rights Reserved.</p>
+
+            </div>
+        </footer>
+    </div>    
+</body>
+</html>
