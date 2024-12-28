@@ -1,0 +1,195 @@
+html, body {
+            background: linear-gradient(to bottom, #ffffff, #ece4e4);
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            font-family: Montserrat, sans-serif;
+        }
+
+        .menu {
+            display: flex;
+            margin-left: auto;
+            min-height: 40px;
+            max-width: 100%;
+            align-items: center;
+            background: linear-gradient(to left, #ff7f50, #dd5e30 );
+        }
+
+        #main-menu {
+            display: flex;
+            flex-wrap: wrap;
+            font-weight: bold;
+            font-size: 20px; 
+            justify-content: flex-end;
+            align-items: center;
+            margin: 0 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu-item {
+            position: relative;
+            margin: 0 15px;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            transition: all 200ms ease-in-out;
+        }
+
+        .menu-item:hover {
+            border-color: white;
+        }
+
+        .menu-link {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: color 200ms ease-in-out;
+            font-size: 18px;
+        }
+
+        .menu-link:hover {
+            color: #502915;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            color: #dd5e30;
+        }
+
+        hr {
+            margin-bottom: 40px; 
+            border: none;
+            border-top: 2px solid #dd5e30;
+        }
+
+        .Forms {
+            background-color: rgba(255, 127, 80, 0.1);
+            display: inline-flex; 
+            margin-top: 20px;
+            text-align: justify;
+            box-shadow: 0 4px 15px rgba(200, 74, 11, 0.3);
+            border-radius: 12px;
+            padding: 20px; 
+        }
+
+        .signUpForm, .loginForm {
+            width: 350px; 
+            padding: 20px;
+            box-sizing: border-box; 
+        }
+
+        .loginForm {
+            border: 2px solid rgba(200, 74, 11, 0.5);
+            border-left: none; 
+            background-color: #fafafa;
+            border-radius: 0 12px 12px 0;
+        }   
+
+        .signUpForm {
+            border: 2px solid rgba(200, 74, 11, 0.5);
+            border-right: 2px solid #2c3e50;
+            background-color: #fafafa;  
+            border-radius: 12px 0 0 12px;
+        }
+
+        #loginText {
+            font-size: 20px; 
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333; 
+            font-weight: bold; 
+        }
+
+        input[type="text"], input[type="password"], input[type="email"] {
+          width: 100%;
+          padding: 12px;
+          border: 1px solid #ccc;
+          border-radius: 6px;
+          margin-bottom: 15px;
+          background-color: #ffffff; 
+        }
+
+        input[type="submit"] {
+            background-color: #ff7f50; 
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #e05c30;
+        }
+
+        .button {
+            background-color: #ff7962; 
+            border: none;
+            color: white;
+            text-align: center;
+            display: inline-block;
+            font-size: 18px; 
+            margin-top: 15px;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-family: Montserrat, sans-serif;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #d14a2a; 
+        }
+
+        .Sfooter { 
+            color: #fff; 
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            width: 100%;
+        }
+
+        .footerContent {
+            width: 100%;
+            margin-bottom: 20px;  
+            background-color: #2c3e50; 
+        }
+
+        #footerButton {
+            font-size: 16px;
+            font-weight: bold; 
+            padding: 10px; 
+            border-radius: 5px;    
+        }
+
+        #footerCopy {
+            font-size: 13px ; 
+            border-top: 1px solid #4a4a4a; 
+            padding: 4px; 
+            background-color: #151d25;
+            color: #ccc; 
+        }

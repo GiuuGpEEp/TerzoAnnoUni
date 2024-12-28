@@ -84,7 +84,7 @@ hr{
 .Forms {
     background-color: rgb(200,74,11,0.5);
     display: inline-flex; 
-    margin-top: 10px;
+    margin-top: 20px;
     text-align: justify;
     box-shadow: 0 0 15px rgba(200, 74, 11, 0.8);
     border-radius: 10px;

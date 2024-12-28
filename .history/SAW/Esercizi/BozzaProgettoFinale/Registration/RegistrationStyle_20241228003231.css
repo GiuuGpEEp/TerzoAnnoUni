@@ -84,7 +84,7 @@ hr{
 .Forms {
     background-color: rgb(200,74,11,0.5);
     display: inline-flex; 
-    margin-top: 10px;
+    margin-top: 20px;
     text-align: justify;
     box-shadow: 0 0 15px rgba(200, 74, 11, 0.8);
     border-radius: 10px;
@@ -94,20 +94,20 @@ hr{
 .signUpForm, .loginForm {
     width: 300px; 
     padding: 20px;
-    box-sizing: border-box; 
+    box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.signUpForm{
+    background: linear-gradient(to bottom, #fff, #ffe5d1); 
 }
 
 .loginForm {
-    border: 3px solid rgba(200, 74, 11, 0.7);
     background-color: #ece4e4;
-    border-radius: 10px;
 }   
 
 .signUpForm {
-    margin-right: 0px;  
-    border: 3px solid rgba(200, 74, 11, 0.7);
-    background-color: #ece4e4;  
-    border-radius: 10px;
+    margin-right: 0px; /* Add margin to separate the forms */
+    border-right: 2px solid #2c3e50; /* Add a border to separate the forms */
 }
 
 #loginText {
@@ -150,8 +150,12 @@ input[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
+input[type="submit"]:hover {
+    background-color: #ff4500; /* Arancione scuro */
+}
+
 .button {
-    background-color: #ff7962; /* Arancione */
+    background-color: #ff7f50; /* Arancione */
     border: none;
     color: white;
     text-align: center;
@@ -166,52 +170,13 @@ input[type="submit"] {
 }
 
 .button:hover {
-    background-color: #941600; /* Arancione scuro */
+    background-color: #ff4500; /* Arancione scuro */
 }
 
 #submitButton{
     text-align: center;
     font-size: 18px; 
     margin-top: 0px;
-}
-
-
-.intro-text {
-    font-size: 20px;
-    font-family: Arial, sans-serif;
-    color: #333;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.form-section {
-    margin: 0px;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-#formSectionSu{
-    border-radius: 10px 0 0 10px;
-    border-right: 2px solid #2c3e50; 
-}
-
-#formSectionL{
-    border-radius: 0 10px 10px 0; 
-}
-
-.form-title {
-    font-size: 22px;
-    font-weight: bold;
-    color: #555;
-    text-align: center;
-    margin-bottom: 15px;
-    padding: 10px;
-    background-color: #ff7962;
-    color: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .Sfooter { 
@@ -269,5 +234,4 @@ input[type="submit"] {
     background-color: #151d25;
     color: #ccc; 
 }
-
 

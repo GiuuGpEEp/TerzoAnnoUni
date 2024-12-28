@@ -84,7 +84,7 @@ hr{
 .Forms {
     background-color: rgb(200,74,11,0.5);
     display: inline-flex; 
-    margin-top: 10px;
+    margin-top: 20px;
     text-align: justify;
     box-shadow: 0 0 15px rgba(200, 74, 11, 0.8);
     border-radius: 10px;
@@ -99,15 +99,17 @@ hr{
 
 .loginForm {
     border: 3px solid rgba(200, 74, 11, 0.7);
+    border-left: none; 
     background-color: #ece4e4;
-    border-radius: 10px;
+    border-radius: 0 10px 10px 0;
 }   
 
 .signUpForm {
     margin-right: 0px;  
     border: 3px solid rgba(200, 74, 11, 0.7);
+    border-right: 2px solid #2c3e50;
     background-color: #ece4e4;  
-    border-radius: 10px;
+    border-radius: 10px 0 0 10px;
 }
 
 #loginText {
@@ -175,45 +177,6 @@ input[type="submit"] {
     margin-top: 0px;
 }
 
-
-.intro-text {
-    font-size: 20px;
-    font-family: Arial, sans-serif;
-    color: #333;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.form-section {
-    margin: 0px;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-#formSectionSu{
-    border-radius: 10px 0 0 10px;
-    border-right: 2px solid #2c3e50; 
-}
-
-#formSectionL{
-    border-radius: 0 10px 10px 0; 
-}
-
-.form-title {
-    font-size: 22px;
-    font-weight: bold;
-    color: #555;
-    text-align: center;
-    margin-bottom: 15px;
-    padding: 10px;
-    background-color: #ff7962;
-    color: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
 .Sfooter { 
     color: #fff; 
     text-align: center;
@@ -270,4 +233,32 @@ input[type="submit"] {
     color: #ccc; 
 }
 
+.intro-text {
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
 
+.form-section {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #ff7962;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

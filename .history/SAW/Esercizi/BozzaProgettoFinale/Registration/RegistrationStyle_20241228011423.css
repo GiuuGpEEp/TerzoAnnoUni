@@ -84,7 +84,7 @@ hr{
 .Forms {
     background-color: rgb(200,74,11,0.5);
     display: inline-flex; 
-    margin-top: 10px;
+    margin-top: 20px;
     text-align: justify;
     box-shadow: 0 0 15px rgba(200, 74, 11, 0.8);
     border-radius: 10px;
@@ -181,24 +181,16 @@ input[type="submit"] {
     font-family: Arial, sans-serif;
     color: #333;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .form-section {
-    margin: 0px;
+    margin: 20px;
     padding: 20px;
     background-color: #f8f9fa;
     border: 1px solid #ddd;
+    border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-#formSectionSu{
-    border-radius: 10px 0 0 10px;
-    border-right: 2px solid #2c3e50; 
-}
-
-#formSectionL{
-    border-radius: 0 10px 10px 0; 
 }
 
 .form-title {
