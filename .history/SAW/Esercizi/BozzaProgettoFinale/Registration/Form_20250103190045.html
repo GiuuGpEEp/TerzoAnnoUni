@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="RegistrationStyle.css">
+    <link rel="icon" href="../Logo32.ico" type="image/x-icon">
+    <script src="RegistrationScript.js"></script>
+</head>
+
+<div class="wrapper">
+        <header class="header">
+            <nav class="menu">
+                <ul id="main-menu">
+                    <li class="menu-item">
+                        <a class="menu-link" onclick="goHome()">
+                            <span class="">Home</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="menu-link" href="/contattaci">
+                            <span class="">Corsi</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="menu-link" href="/corsi">
+                            <span class="">Istruttori</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="menu-link" href="../Registration/Form.html">
+                            <span class="">Sign-up e Login</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div class="content">
+            <p class="intro-text">Benvenuto! Registrati per creare un account, in modo da iniziare ad allenarti con noi. <br> Oppure accedi se possiedi già un account</p>
+            <div class="Forms">
+                <div class="form-section" id="formSectionSu">
+                    <div class="form-title">Crea un nuovo account</div>
+                    <form class="signUpForm" action="registration.php" method="post">
+                        <label for="firstname">Nome:</label>
+                        <input type="text" id="firstname" name="firstname" placeholder="Inserisci il tuo nome" required>
+                        <span class="error" id="errorFirstname">il campo nome è obbligatorio</span>    
+                        <label for="lastname">Cognome:</label>
+                        <input type="text" id="lastname" name="lastname" placeholder="Inserisci il tuo cognome" required>
+                        <span class="error" id="errorLastname">il campo cognome è obbligatorio</span>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required>
+                        <span class="error" id="errorMail">Mail obbligatoria</span>
+                        <label for="pass">Password:</label>
+                        <input type="password" id="pass" name="pass" placeholder="Inserisci la tua password" required>
+                        <span class="error" id="errorPass">Password non valida</span>
+                        <label for="confirm">Conferma Password:</label>
+                        <input type="password" id="confirm" name="confirm" placeholder="Conferma la tua password" required>
+                        <span class="error" id="errorConfirm">Le due password non corrispondono</span>
+                        <input type="submit" class="button" id="submitButton" name="submit" value="Registrati">
+                    </form>
+                </div>
+
+                <div class="form-section" id="formSectionL"> 
+                    <div class="form-title">Effettua il login</div>
+                    <div class="loginForm">
+                        <form class="LoginForm" action="login.php" method="post">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required>
+                            
+                            <label for="pass">Password:</label>
+                            <input type="password" id="pass" name="pass" placeholder="Inserisci la tua password" required>
+                            <input type="submit" class="button" id="submitButton" name="submit" value="Login">
+                        </form>    
+                    </div>
+                </div>
+            </div>        
+        </div>
+        <footer class="Sfooter">
+            <div class="footerContent">
+                 <p class="footerContent"><span id="footerTitle"> Hai bisogno di aiuto ? </span></p>
+                 <button id="footerButton" class="button" type="button" onclick="">Contattaci</button>
+            </div>
+            <div id="footerCopy">
+                <p>© 2024 Parkour Academy. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>    
+</body>
+</html>
