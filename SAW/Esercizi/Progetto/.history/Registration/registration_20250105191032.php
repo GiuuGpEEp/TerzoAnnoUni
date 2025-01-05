@@ -31,8 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     $password = mysqli_real_escape_string($conn, $password);
     $confirm = mysqli_real_escape_string($conn, $confirm);
 
-    $stmt = $conn->prepare("INSERT INTO Users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssss", $firstname, $lastname, $email, $hash);
+    
     
     if(!($stmt->execute())){
         $errors[] = "Registrazione non riuscita riprova...";

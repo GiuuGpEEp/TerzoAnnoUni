@@ -9,18 +9,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     $errors = [];
 
     // Validazione dei campi
-    if(empty($firstname)){ $errors[] = "Il nome è obbligatorio.";}
-    if (empty($lastname)){ $errors[] = "Il cognome è obbligatorio.";}
-    if (empty($email)){ $errors[] = "L'email è obbligatoria.";}
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)){ $errors[] = "Email non valida.";}
-    if (empty($password)){ $errors[] = "La password è obbligatoria.";}
-    if (strlen($password) < 8){ $errors[] = "La password deve contenere almeno 8 caratteri.";}
-    if ($password !== $confirm){ $errors[] = "Le password non corrispondono.";}
+    if {(empty($firstname)) $errors[] = "Il nome è obbligatorio.";}
+    if {(empty($lastname)) $errors[] = "Il cognome è obbligatorio.";}
+    if {(empty($email)) $errors[] = "L'email è obbligatoria.";}
+    if {(!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "Email non valida.";}
+    if {(empty($password)) $errors[] = "La password è obbligatoria.";}
+    if {(strlen($password) < 8) $errors[] = "La password deve contenere almeno 8 caratteri.";}
+    if {($password !== $confirm) $errors[] = "Le password non corrispondono.";}
 
     $hash = password_hash($password, PASSWORD_BCRYPT);
 
     // Connessione al database
-    $conn = mysqli_connect("localhost", "GiuuG", "Samubruttatestadicazzo1", "BozzaProgetto");
+    $conn = mysqli_connect("localhost", "GiuuG", "Samubruttatestadicazzo1", "registration");
     if (!$conn) {
         die("Connessione al database fallita: " . mysqli_connect_error());
     }
@@ -31,15 +31,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     $password = mysqli_real_escape_string($conn, $password);
     $confirm = mysqli_real_escape_string($conn, $confirm);
 
-    $stmt = $conn->prepare("INSERT INTO Users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)"); 
     $stmt->bind_param("ssss", $firstname, $lastname, $email, $hash);
     
-    if(!($stmt->execute())){
-        $errors[] = "Registrazione non riuscita riprova...";
-    }
+    if$stmt->execute();
 
-    $stmt->close();
-    mysqli_close($conn);
+
 
     // Mostra errori o messaggio di successo
     if (!empty($errors)) {

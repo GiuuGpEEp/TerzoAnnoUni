@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     $hash = password_hash($password, PASSWORD_BCRYPT);
 
     // Connessione al database
-    $conn = mysqli_connect("localhost", "GiuuG", "Samubruttatestadicazzo1", "BozzaProgetto");
+    $conn = mysqli_connect("localhost", "GiuuG", "Samubruttatestadicazzo1", "BozzaProget");
     if (!$conn) {
         die("Connessione al database fallita: " . mysqli_connect_error());
     }
@@ -31,8 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     $password = mysqli_real_escape_string($conn, $password);
     $confirm = mysqli_real_escape_string($conn, $confirm);
 
-    $stmt = $conn->prepare("INSERT INTO Users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssss", $firstname, $lastname, $email, $hash);
+    
     
     if(!($stmt->execute())){
         $errors[] = "Registrazione non riuscita riprova...";
