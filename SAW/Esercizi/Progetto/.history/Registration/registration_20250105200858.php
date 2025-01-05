@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     $password = mysqli_real_escape_string($conn, $password);
     $confirm = mysqli_real_escape_string($conn, $confirm);
 
-    $checkQuery = $conn->prepare("SELECT email FROM Users WHERE email = ?");
+    $checkQuery = $conn->prepare("SELECT id FROM Users WHERE email = ?");
     $checkQuery->bind_param("s", $email);
     $checkQuery->execute();
     $checkQuery->store_result();
@@ -48,7 +48,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         $stmt->close();
     }
 
-    $checkQuery->close();
+
+
+
+
+
+    
     mysqli_close($conn);
 
     // Mostra errori o messaggio di successo

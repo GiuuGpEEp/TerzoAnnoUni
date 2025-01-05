@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         $stmt->close();
     }
 
-    $checkQuery->close();
+    checkQuery->close();
     mysqli_close($conn);
 
     // Mostra errori o messaggio di successo

@@ -29,26 +29,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     $password = mysqli_real_escape_string($conn, $password);
     $confirm = mysqli_real_escape_string($conn, $confirm);
 
-    $checkQuery = $conn->prepare("SELECT email FROM Users WHERE email = ?");
+    $checkQuery = $conn->prepare("SELECT id FROM Users WHERE email = ?");
     $checkQuery->bind_param("s", $email);
     $checkQuery->execute();
     $checkQuery->store_result();
 
     if($checkQuery->num_rows > 0){
         $errors[] = "Email già registrata.";
-    }else{
-
-        $hash = password_hash($password, PASSWORD_BCRYPT);
-        $stmt = $conn->prepare("INSERT INTO Users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $firstname, $lastname, $email, $hash);
-        if(!($stmt->execute())){
-            $errors[] = "Registrazione non riuscita riprova...";
-        }
-
-        $stmt->close();
     }
 
-    $checkQuery->close();
+    
+
+
+
+
+    $stmt = $conn->prepare("INSERT INTO Users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $firstname, $lastname, $email, $hash);
+    
+
+    if(!($stmt->execute())){
+        $errors[] = "Registrazione non riuscita riprova...";
+    }
+
+    $stmt->close();
     mysqli_close($conn);
 
     // Mostra errori o messaggio di successo

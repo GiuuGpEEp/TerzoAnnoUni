@@ -1,4 +1,6 @@
 <?php
+
+
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     $firstname =htmlentities(trim($_POST["firstname"]));
     $lastname = htmlentities(trim($_POST["lastname"]));
@@ -16,7 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     if (empty($password)){ $errors[] = "La password è obbligatoria.";}
     if (strlen($password) < 8){ $errors[] = "La password deve contenere almeno 8 caratteri.";}
     if ($password !== $confirm){ $errors[] = "Le password non corrispondono.";}
-    
+
+    $hash = password_hash($password, PASSWORD_BCRYPT);
+
     // Connessione al database
     $conn = mysqli_connect("localhost", "GiuuG", "Samubruttatestadicazzo1", "BozzaProgetto");
     if (!$conn) {
@@ -29,26 +33,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     $password = mysqli_real_escape_string($conn, $password);
     $confirm = mysqli_real_escape_string($conn, $confirm);
 
-    $checkQuery = $conn->prepare("SELECT email FROM Users WHERE email = ?");
-    $checkQuery->bind_param("s", $email);
-    $checkQuery->execute();
-    $checkQuery->store_result();
-
-    if($checkQuery->num_rows > 0){
-        $errors[] = "Email già registrata.";
-    }else{
-
-        $hash = password_hash($password, PASSWORD_BCRYPT);
-        $stmt = $conn->prepare("INSERT INTO Users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $firstname, $lastname, $email, $hash);
-        if(!($stmt->execute())){
-            $errors[] = "Registrazione non riuscita riprova...";
-        }
-
-        $stmt->close();
+    $stmt = $conn->prepare("INSERT INTO Users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $firstname, $lastname, $email, $hash);
+    
+    
+    if(!($stmt->execute())){
+        $errors[] = "Registrazione non riuscita riprova...";
     }
+    
+    
 
-    $checkQuery->close();
+    $stmt->close();
     mysqli_close($conn);
 
     // Mostra errori o messaggio di successo
