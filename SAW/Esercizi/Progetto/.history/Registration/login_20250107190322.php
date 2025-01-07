@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         .error {
             color: red;
             text-align: center;
-            margin-top: 10px;
+            margin-top: 5px;
         }
     </style>
 </head>

@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     $checkQuery->execute();
     $checkQuery->store_result();
 
-    if($checkQuery->num_rows > 0){ //Ho almeno un risultato
+    if($checkQuery->num_rows > 0){
         $errors[] = "Email già registrata.";
     }else{
 

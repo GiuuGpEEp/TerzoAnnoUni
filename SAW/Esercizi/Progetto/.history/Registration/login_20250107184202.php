@@ -9,6 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     if (empty($email)) { $errors[] = "L'email è obbligatoria."; }
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { $errors[] = "Email non valida."; }
     if (empty($password)) { $errors[] = "La password è obbligatoria."; }
+    if (strlen($password) < 8) { $errors[] = "La password deve contenere almeno 8 caratteri."; }
 
     if (empty($errors)) {
         // Connessione al database
@@ -28,12 +29,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
                 $user = $result->fetch_assoc();  //traduco in un array associativo
 
                 // Verifica della password
-                if (!(password_verify($password, $user['password']))) { //password_verify permette di confrontare una password non cifrata con una cifrate
-                    $errors[] = "Password errata.";
-                }   
+                if (!(password_verify($password, $user['password']))) { //password_verify permette di confrontare una password non cifrata con una cifrata
+                    
+                }   $errors[] = "Password errata.";
                 
             } else {
-                $errors[] = "Email non registrata.";
+                $errors[] = "Email non trovata.";
             }
         } else {
             $errors[] = "Errore nell'esecuzione della query.";
@@ -62,26 +63,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-
-        h1 {
-            color: green;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .error {
-            color: red;
-            text-align: center;
-            margin-top: 10px;
-        }
-    </style>
 </head>
 <body>
     

@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     if ($password !== $confirm){ $errors[] = "Le password non corrispondono.";}
     
     // Connessione al database
-    $conn = mysqli_connect("localhost", "root", "", "bozzadb");
+    $conn = mysqli_connect("localhost", "admin", "", "bozzadb");
     if (!$conn) {
         die("Connessione al database fallita: " . mysqli_connect_error());
     }
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     $checkQuery->execute();
     $checkQuery->store_result();
 
-    if($checkQuery->num_rows > 0){ //Ho almeno un risultato
+    if($checkQuery->num_rows > 0){
         $errors[] = "Email già registrata.";
     }else{
 
