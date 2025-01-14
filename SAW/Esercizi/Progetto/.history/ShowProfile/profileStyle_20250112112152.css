@@ -1,0 +1,229 @@
+html, body {
+    background-color: #ece4e4;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%; 
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.title{
+    font-size: 24px;
+    font-weight: bold;
+    color: #941600;
+    margin-bottom: 20px;
+}
+
+hr{
+    margin-bottom: 40px; 
+}
+
+.profileContainer {
+    background-color: rgb(200,74,11,0.5);
+    display: inline-flex; 
+    margin-top: 20px;
+    text-align: justify;
+    box-shadow: 0 0 15px rgba(200, 74, 11, 0.8);
+    border-radius: 10px;
+    padding: 10px; 
+}
+
+.imageContainer {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; 
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Adatta l'immagine al contenitore senza deformarla */
+}
+
+.description {
+    width: 300px; 
+    padding: 20px;
+    box-sizing: border-box; 
+    border: 3px solid rgba(200, 74, 11, 0.7);
+    background-color: #ece4e4;
+    border-radius: 10px;
+}
+
+.descriptionContainer {
+    width: 100%; 
+    max-width: 100%; /* Messo per evitare che superi la dimensione del contenitore */
+    height: auto; /* Messo perchè permette di spo */
+    max-height: 300px; /* Limita l'altezza massima (opzionale) */
+    box-sizing: border-box; /* Considera padding e bordi nel calcolo della dimensione */
+    overflow: auto; /* Mostra la barra di scorrimento se necessario */
+    word-wrap: break-word; /* Spezza le parole troppo lunghe */
+    resize: vertical; /* Permetti di ridimensionare solo verticalmente */
+}   
+
+.button {
+    background-color: #ff7962;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px; 
+    margin-top: 15px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-family: Montserrat, sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #941600; 
+}
+
+.buttonContainer {
+    width: 32%;
+    margin: 0 auto;
+}
+
+#editButton{
+    float: left;
+    margin-left: 10px;
+}
+
+#logIcon{
+    margin-right: 10px;
+}
+
+#logoutButton{
+    display: inline-flex;
+    align-items: center;
+    background-color: #f05454;
+    float: right;
+    margin-right: 10px;
+}
+
+#logoutButton:hover{
+    color: #7e0707;
+}
+
+
+.userSection {
+    margin: 0px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#imageSection{
+    border-right: 2px solid #000000; 
+}
+
+.nameSurname {
+    font-size: 22px;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #ff7962;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.descriptionLine{
+    margin-bottom: 0px; 
+}
+
+label{
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    color: #333; 
+    font-weight: bold; 
+}
+
+input[type="text"], input[type="number"], input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; 
+  margin-bottom: 10px;
+  background-color: #f0f8ff; 
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    margin-bottom: 10px;
+    background-color: #f0f8ff; 
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;     
+    margin-bottom: 10px;
+    background-color: #f0f8ff; 
+}
+
+.formRow{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.updateText{
+    margin: 0 auto;
+}
+
+.divider{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-top: 1px solid   #201e1e;
+}
+
+.buttonContainer{
+    width: 100%;
+}
+
+#updateButton{
+    display: inline-flex;
+    float: right;
+    margin: 0 auto;
+}
+
+#descriptionText{
+    width: 100%; /* Mantieni il campo responsive */
+    max-width: 100%; /* Evita che superi i bordi */
+    height: auto; /* Permetti l'espansione verticale */
+    max-height: 300px; /* Limita l'altezza massima (opzionale) */
+    box-sizing: border-box; /* Considera padding e bordi nel calcolo della dimensione */
+    overflow: auto; /* Mostra la barra di scorrimento se necessario */
+    word-wrap: break-word; /* Spezza le parole troppo lunghe */
+    resize: vertical; /* Permetti di ridimensionare solo verticalmente */
+}

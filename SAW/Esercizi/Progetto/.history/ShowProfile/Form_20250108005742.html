@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="RegistrationStyle.css">
+    <link rel="icon" href="../Logo32.ico" type="image/x-icon">
+    <script src="RegistrationScript.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+            <header class="header">
+                <nav class="menu">
+                    <ul id="main-menu">
+                        <li class="menu-item">
+                            <a class="menu-link" onclick="goHome()">
+                                <span class="">Home</span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a class="menu-link" href="/contattaci">
+                                <span class="">Corsi</span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a class="menu-link" href="/corsi">
+                                <span class="">Istruttori</span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a class="menu-link" href="../Registration/Form.html">
+                                <span class="">Sign-up e Login</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="content">
+                <p class="intro-text"></p>
+                <div class="Forms">
+                    <div class="form-section" id="formSectionSu"> <!-- userImage -->
+                        <div class="signUpForm"> <!-- imageContainer -->
+                            <img id="profile-image" src="profileImage.png" alt="Immagine Utente">
+                        </div>
+                    </div>
+
+                    <div class="form-section" id="formSectionL">
+                        <div class="form-title">Nome Cognome</div>
+                        <div class="loginForm">
+                            <p> Descrizione</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="Sfooter">
+                <div class="footerContent">
+                     <p class="footerContent"><span id="footerTitle"> Hai bisogno di aiuto ? </span></p>
+                     <button id="footerButton" class="button" type="button" onclick="">Contattaci</button>
+                </div>
+                <div id="footerCopy">
+                    <p>© 2024 Parkour Academy. All Rights Reserved.</p>
+                </div>
+            </footer>
+        </div>
+</body>
+</html>

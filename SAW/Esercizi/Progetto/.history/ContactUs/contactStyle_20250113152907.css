@@ -1,0 +1,133 @@
+html, body {
+    background-color: #ece4e4;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%; 
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.title{
+    font-size: 24px;
+    font-weight: bold;
+    color: #941600;
+    margin-bottom: 20px;
+}
+
+.button {
+    background-color: #ff7962; /* Arancione */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px; 
+    margin-top: 15px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-family: Montserrat, sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #941600; /* Arancione scuro */
+}
+
+.formTitle {
+    font-size: 22px;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #ff7962;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.contactANDForm{
+    background-color: rgb(200,74,11,0.5);
+    display: inline-flex; 
+    margin-top: 10px;
+    text-align: justify;
+    box-shadow: 0 0 15px rgba(200, 74, 11, 0.8);
+    border-radius: 10px;
+    padding: 10px; 
+}
+
+.formSection {
+    margin: 0px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#messageFormSection{
+    border-radius: 10px 0 0 10px;
+    border-right: 2px solid #2c3e50; 
+}
+
+.messageForm {
+    width: 100%; 
+    padding: 20px;
+    box-sizing: border-box;
+    margin-right: 0px;  
+    border: 3px solid rgba(200, 74, 11, 0.7);
+    background-color: #ece4e4;  
+    border-radius: 10px; 
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+  
+   /* Include padding e border nella larghezza */
+    margin-bottom: 10px;
+    background-color: #f0f8ff; 
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    color: #333; 
+    font-weight: bold; 
+}
+
+textarea{
+    resize: both; 
+    max-width: 200px; 
+    max-height: 50px;
+}
+
+#contactSection{
+    border-radius: 0 10px 10px 0;
+}
+
+.testo{
+    font-size: 18px;
+    color: #2f0701;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+
+

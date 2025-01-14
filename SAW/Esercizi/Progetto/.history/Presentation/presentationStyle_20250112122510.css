@@ -1,0 +1,35 @@
+html, body {
+    background-color: #ece4e4;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%; 
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.title{
+    font-size: 24px;
+    font-weight: bold;
+    color: #941600;
+    margin-bottom: 20px;
+}
+
+.text{
+    font-size: 18px;
+    color: #2f0701;
+    margin-bottom: 20px;
+    width: 50%;
+}

@@ -1,0 +1,233 @@
+html, body {
+    background-color: #ece4e4;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu {
+    display: flex;
+    margin-left: auto;
+    min-height: 40px;
+    max-width: 100%;
+    align-items: center;
+    background: linear-gradient(to left, transparent 35%, #dd5e30 );
+}
+
+#main-menu {
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: bold;
+    font-size: 32px; /* Increased */
+    font-family: Montserrat, sans-serif;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+
+.menu-item {
+    position: relative;
+    margin: 0 20px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: all 200ms ease-in-out;
+}
+
+.menu-item:hover {
+    border-color: white;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: color 200ms ease-in-out;
+    font-size: 24px; /* Increased */
+}
+
+.menu-link:hover {
+    color: #502915;
+}
+
+.menu-item.active {
+    border-color: white;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column; /* Imposta una colonna verticale per il layout */
+    min-height: 100vh; /* Assicura che il wrapper occupi l'intera altezza della finestra */
+}
+
+.content {
+    flex: 1; /* Spinge il footer in basso */
+    padding: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.title{
+    font-size: 24px;
+    font-weight: bold;
+    color: #6b1404;
+    margin-bottom: 20px;
+}
+
+hr{
+    margin-bottom: 40px; 
+}
+
+.Forms {
+    background-color: rgb(200,74,11,0.5);
+    display: inline-flex; 
+    margin-top: 20px;
+    text-align: justify;
+    box-shadow: 0 0 15px rgba(200, 74, 11, 0.8);
+    border-radius: 10px;
+    padding: 10px; 
+}
+
+.imageContainer {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Rende il contenitore rotondo */
+    overflow: hidden; /* Nasconde eventuali parti dell'immagine fuori dal cerchio */
+    border: 3px solid #ffa07a; /* Bordo intorno all'immagine */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Adatta l'immagine al contenitore senza deformarla */
+}
+
+.loginForm {
+    width: 300px; 
+    padding: 20px;
+    box-sizing: border-box; 
+}
+
+.loginForm {
+    border: 3px solid rgba(200, 74, 11, 0.7);
+    background-color: #ece4e4;
+    border-radius: 10px;
+}   
+
+
+.button {
+    background-color: #ff7962; /* Arancione */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px; 
+    margin-top: 15px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-family: Montserrat, sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #941600; /* Arancione scuro */
+}
+
+.form-section {
+    margin: 0px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#formSectionSu{
+    border-radius: 10px 0 0 10px;
+    border-right: 2px solid #2c3e50; 
+}
+
+#formSectionL{
+    border-radius: 0 10px 10px 0; 
+}
+
+.form-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #ff7962;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.Sfooter { 
+    color: #fff; 
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    width: 100%;
+}
+
+.footerContent {
+    width: 100%;
+    margin-bottom: 20px;  
+    background-color: #2c3e50; 
+    margin: 0;
+    flex-shrink: 0;
+}
+
+#footerButton{
+    font-size: 16px;
+    font-weight: bold; 
+    padding: 4px 4px; 
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 100px;
+    height: 35px; 
+    border-radius: 5px;    
+}
+
+#footerTitle{
+    position: relative; 
+    font-size: 20px; 
+    font-weight: bold;
+    text-align: center;
+    background-color: #2c3e50;
+    display: inline-block; 
+}
+
+#footerTitle::before, #footerTitle::after {
+    content: "";
+    display: inline-block; 
+    width: 100%; 
+    height: 2px;
+    background-color: rgb(0, 0, 0);
+}
+
+#footerTitle::before{
+    margin-bottom: 5px;
+}
+
+#footerCopy {
+    font-size: 13px ; 
+    border-top: 1px solid #4a4a4a; 
+    padding: 4px; 
+    background-color: #151d25;
+    color: #ccc; 
+}
+
+
