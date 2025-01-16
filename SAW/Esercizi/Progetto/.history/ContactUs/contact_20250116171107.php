@@ -1,30 +1,3 @@
-//spostare in un altro file 
-
-<?php
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = htmlspecialchars($_POST['name']);
-    $email = htmlspecialchars($_POST['email']);
-    $messaggio = htmlspecialchars($_POST['message']);
-
-    // Invia email
-    $to = "giuseperricone03@gmail.com";
-    $subject = "Nuovo messaggio da $nome";
-    $body = "Nome: $nome\nEmail: $email\nMessaggio:\n$messaggio";
-    $headers = "From: $email";
-
-    if (mail($to, $subject, $body, $headers)) {
-        echo "Messaggio inviato con successo!";
-    } else {
-        echo "Errore durante l'invio del messaggio. Riprova più tardi.";
-        exit;
-    }
-}
-
-?>
-
-//
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -46,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="contactANDForm">                    
                 <div class="formSection" id="messageFormSection">
                     <div class="formTitle">Scrivici</div>
-                    <form class="messageForm" action="contact.php" method="post">
+                    <form class="messageForm" action="contactForm.php" method="post">
                         <label for="name">Il tuo nome:</label>
                         <input type="text" id="name" name="name" required>
                         <label for="email">La tua email:</label>
@@ -65,23 +38,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="whatsapp">
                             <img id="waLogo" src= whatsappLogo.png alt="whatsapp" class="waLogo" width="25" height="25">
                             <p class="waText">+39 349 799 1113</p>
-                        </div>
-                        <hr>
+                        </div>    
                         <div class="facebook">
                             <img id="fbLogo" src= facebookLogo.png alt="facebook" class="fbLogo" width="25" height="25">
-                            <a href="https://www.facebook.com/people/Parkour-Academy-Genova/61566051531407/?mibextid=wwXIfr&rdid=dRSvkAbtz2PpHfyx&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Epi2Xb36n%2F%3Fmibextid%3DwwXIfr"><p class="fbText">Parkour Academy Genova</p></a>
-                        </div>
-                        <hr>
-                        <div class="instagram">
-                            <img id="igLogo" src= instagramLogo.png alt="instagram" class="igLogo" width="25" height="25">
-                            <a href="https://www.instagram.com/parkour_academy_genova/"><p class="igText">parkour_academy_genova</p></a>    
-                        </div>
-                        <hr>
-                        <div class="gmail">
-                            <img id="gmLogo" src= gmailLogo.png alt="gmail" class="gmLogo" width="25" height="25">
-                            <p class="gmText"> ParkourAcademyGenova@gmail.com</p>
-                        </div>
-                        <hr>    
+                            <p 
+                        </div>        
                     </div>            
                 </div>
             </div>        

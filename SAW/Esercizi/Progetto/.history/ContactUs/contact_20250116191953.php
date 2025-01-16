@@ -1,5 +1,3 @@
-//spostare in un altro file 
-
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -17,13 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Messaggio inviato con successo!";
     } else {
         echo "Errore durante l'invio del messaggio. Riprova più tardi.";
-        exit;
+        exit
     }
 }
 
 ?>
-
-//
 
 <!DOCTYPE html>
 <html lang="it">

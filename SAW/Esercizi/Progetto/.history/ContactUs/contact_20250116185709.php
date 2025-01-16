@@ -1,29 +1,26 @@
-//spostare in un altro file 
-
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = htmlspecialchars($_POST['name']);
+    $nome = htmlspecialchars($_POST['nome']);
     $email = htmlspecialchars($_POST['email']);
-    $messaggio = htmlspecialchars($_POST['message']);
+    $oggetto = htmlspecialchars($_POST['oggetto']);
+    $messaggio = htmlspecialchars($_POST['messaggio']);
 
     // Invia email
-    $to = "giuseperricone03@gmail.com";
+    $to = "info@parkouracademy.com";
     $subject = "Nuovo messaggio da $nome";
-    $body = "Nome: $nome\nEmail: $email\nMessaggio:\n$messaggio";
+    $body = "Nome: $nome\nEmail: $email\nOggetto: $oggetto\nMessaggio:\n$messaggio";
     $headers = "From: $email";
 
     if (mail($to, $subject, $body, $headers)) {
         echo "Messaggio inviato con successo!";
     } else {
         echo "Errore durante l'invio del messaggio. Riprova più tardi.";
-        exit;
     }
 }
 
 ?>
 
-//
 
 <!DOCTYPE html>
 <html lang="it">

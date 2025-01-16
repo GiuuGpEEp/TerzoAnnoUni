@@ -1,11 +1,9 @@
-//spostare in un altro file 
-
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = htmlspecialchars($_POST['name']);
     $email = htmlspecialchars($_POST['email']);
-    $messaggio = htmlspecialchars($_POST['message']);
+    $messaggio = htmlspecialchars($_POST['messaggio']);
 
     // Invia email
     $to = "giuseperricone03@gmail.com";
@@ -17,13 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Messaggio inviato con successo!";
     } else {
         echo "Errore durante l'invio del messaggio. Riprova più tardi.";
-        exit;
     }
 }
 
 ?>
-
-//
 
 <!DOCTYPE html>
 <html lang="it">

@@ -6,7 +6,7 @@
         exit();
     }
     
-    $_SESSION = array(); 
+    $_SESSION = array()<; 
     session_destroy(); 
     header("Location: ../Registration-login/Form.php"); 
     exit();
