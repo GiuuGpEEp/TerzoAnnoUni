@@ -25,8 +25,9 @@
 
                         <p class="title">Cos'è il Parkour?</p>
 
-                        <p>Il parkour è una disciplina basata sul superamento dell'ostacolo nel modo più veloce, e sicuro, possibile. In aggiunta vi sono anche numerosi movimenti 
-                        acrobatici che vengono eseguiti durante il percorso.
+                        <p>Il parkour è una disciplina sportiva nata in Francia sul finire degli anni 80. Consiste nel superare ostacoli urbani nel modo più veloce, pratico e sicuro possibile con l'aggiunta di movimenti
+                        acrobatici e spettacolari che vengono eseguiti durante il percorso. Affrontando ostacoli sempre differenti e mettendo insieme elementi di salto, esplosività, arrampicata e movimenti di precisione, si rivela essere una pratica estremamente
+                        favorevole allo sviluppo fisico di bambini e adolescenti, migliorando le capacità motorie, di equilibrio, propriocettive e muscolari dei praticanti.
                         </p>
 
                     </div>    

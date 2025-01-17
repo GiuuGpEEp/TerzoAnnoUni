@@ -44,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
             $hash = password_hash($password, PASSWORD_BCRYPT);
             $stmt = $conn->prepare("INSERT INTO Users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)");
             $stmt->bind_param("ssss", $firstname, $lastname, $email, $hash);
+            
             if(!($stmt->execute())){
                 $errors[] = "Registrazione non riuscita riprova...";
             }
