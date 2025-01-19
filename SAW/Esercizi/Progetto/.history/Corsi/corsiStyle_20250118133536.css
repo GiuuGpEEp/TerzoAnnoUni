@@ -1,0 +1,163 @@
+html, body {
+    background-color: #ece4e4;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%; 
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.button {
+    background-color: #ff7962; /* Arancione */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px; 
+    margin-top: 15px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-family: Montserrat, sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #941600; /* Arancione scuro */
+}
+
+.title{
+    font-size: 24px;
+    font-weight: bold;
+    color: #941600;
+    margin-bottom: 20px;
+}
+
+.tabellaCorsi{
+    background-color: rgb(200,74,11,0.5);
+    display: inline-flex; 
+    margin-top: 10px;
+    text-align: justify;
+    box-shadow: 0 0 15px rgba(200, 74, 11, 0.8);
+    border-radius: 10px;
+    padding: 10px; 
+}
+
+.colonnaCorso{
+    margin: 0px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-height: 450px;
+    overflow-y: auto; 
+}
+
+.corsoTitle{
+    font-size: 22px;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #ff7962;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: sticky; 
+    top: 0; 
+    z-index: 10; 
+}
+
+.void {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff; /* Stesso colore del titolo */
+    z-index: -1; /* Posiziona sotto il titolo */
+    transform: translateY(-10px); /* Estende lo sfondo verso l'alto */
+}
+
+.containerSingoloCorso {
+    width: 100%; 
+    padding: 10px;
+    box-sizing: border-box;
+    margin-right: 0px;  
+    border: 3px solid rgba(200, 74, 11, 0.7);
+    background-color: #ece4e4;  
+    border-radius: 10px; 
+    display: flex;               
+    flex-direction: column;      
+    gap: 10px;
+    margin-bottom: 20px;                   
+}
+
+.corsoDescrizione {
+    display: flex;
+    justify-content: space-between; /* Giorno a sinistra, orario a destra */
+    gap: 30px;
+}
+
+.giornoCorso {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;    
+}
+
+.orarioCorso {
+    font-size: 16px;
+    margin: 0;
+    line-height: 1.3; 
+}
+
+.orarioCorso::first-line {
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.prenotationButton {
+    align-self: flex-end;       /* Posiziona il pulsante a destra */
+    background-color: #ece4e4; /* Sfondo */
+    border: 2px green solid;
+    color: rgb(0, 0, 0);
+    font-size: 15px; 
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-family: Montserrat, sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.prenotationButton:hover {
+    background-color: green;
+    color: white;
+}
+
+#colonnaBambini{
+    border-radius: 10px 0 0 10px;
+    border-right: 2px solid #2c3e50; 
+}
+
+#colonnaAdulti{
+    border-radius: 0 10px 10px 0;
+    border-left: 2px solid #2c3e50; 
+}
+
+

@@ -1,0 +1,10 @@
+CREATE TABLE prenotazioni (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    corso_id INT NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    data_prenotazione TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (corso_id) REFERENCES corsi(id) ON DELETE CASCADE,
+    FOREIGN KEY (email) REFERENCES users(email) ON DELETE CASCADE
+);
+
+
