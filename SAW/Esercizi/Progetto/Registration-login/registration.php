@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     $password = htmlentities(trim($_POST["pass"]));
     $confirm = htmlentities(trim($_POST["confirm"]));
 
-    $errors = [];
+    $errors = array();
 
     // Validazione dei campi
     if(empty($firstname)){ $errors[] = "Il nome è obbligatorio.";}
@@ -21,34 +21,37 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     
     if(empty ($errors)){
 
-        // Connessione al database
-        $conn = mysqli_connect("localhost", "root", "", "bozzadb");
-        if (!$conn) {
-            die("Connessione al database fallita: " . mysqli_connect_error());
-        }
+        include '../dbConnection.php';
 
         $checkQuery = $conn->prepare("SELECT email FROM Users WHERE email = ?");
         $checkQuery->bind_param("s", $email);
         $checkQuery->execute();
         $checkQuery->store_result();
 
-        if($checkQuery->num_rows > 0){ //Ho almeno un risultato
+        if($checkQuery->num_rows > 0){ 
             $errors[] = "Email già registrata.";
         }else{
             $hash = password_hash($password, PASSWORD_BCRYPT);
-            $stmt = $conn->prepare("INSERT INTO Users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)");
-            $stmt->bind_param("ssss", $firstname, $lastname, $email, $hash);
+            if($email === 'parkouracademy.admin@gmail.com'){
+                $role = 'admin';
+            } else {
+                $role = 'user';
+            }
+             
+            $stmt = $conn->prepare("INSERT INTO Users (firstname, lastname, email, password, role) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssss", $firstname, $lastname, $email, $hash, $role);
             
             if(!($stmt->execute())){
                 $errors[] = "Registrazione non riuscita riprova...";
             }
 
             $_SESSION['username'] = $email;
+            $_SESSION['role'] = $role;
             $stmt->close();
         }
 
         $checkQuery->close();
-        mysqli_close($conn);
+        $conn->close();
     }
     
     if (!empty($errors)) {
@@ -61,6 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         header("Refresh:2, url=Form.php");
     } else {
         echo "<h1>Registrazione avvenuta con successo!</h1>";
+        echo "<p>Se tra meno di 5 secondi non vieni reindirizzato alla pagina, clicca <a href='../ShowProfile/show_profile.php'>qui</a> </p>";
         header("Refresh:2, url=../ShowProfile/show_profile.php");
     }
 
@@ -74,8 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Registrazione</title>
     <style>
         body {

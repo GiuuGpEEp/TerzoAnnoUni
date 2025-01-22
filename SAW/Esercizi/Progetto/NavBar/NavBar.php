@@ -1,6 +1,6 @@
 <?php 
-    if (session_status() === PHP_SESSION_NONE) {
-        session_start();
+    if (session_status() === PHP_SESSION_NONE) { 
+        session_start(); 
     }
 ?>
 
@@ -84,6 +84,11 @@
                 echo "<a class='menu-link' href='../Registration-login/Form.php'> Sign-up e Login </a>";
             }    
             ?>
+        </li>
+        <li class="menu-item">
+            <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                <a class="menu-link" href="../admin/index.php">Admin Area</a>
+            <?php endif; ?>
         </li>
     </ul>
 </nav>

@@ -13,13 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if(empty($errors)){
         
-        $conn = mysqli_connect("localhost", "root", "", "bozzadb");
-        if (!$conn) {
-            die("Connessione al database fallita: " . mysqli_connect_error());
-        }
+        include '../dbConnection.php';
 
         $data = date("Y-m-d H:i:s");
-        $stmt = $conn->prepare("INSERT INTO mails (nome, email, messaggio, dataInvio) VALUES (?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO mails (nome, email, messaggio, data_invio) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("ssss", $nome, $email, $messaggio, $data);
 
         if(!$stmt->execute()){

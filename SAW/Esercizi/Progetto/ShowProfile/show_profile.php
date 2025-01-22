@@ -1,17 +1,14 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
-    window.alert("Effettua il login per accedere a questa pagina.");
+    echo "<script>window.alert('Effettua il login per accedere a questa pagina.');</script>";
     header("Location: ../Registration-login/Form.php");
     exit();
 }
 
-$errors = [];
-$conn = mysqli_connect("localhost", "root", "", "bozzadb");
+$errors = array();
 
-if (!$conn) {
-    die("Connessione al database fallita: " . mysqli_connect_error());
-}
+include '../dbConnection.php';
 
 $username = $_SESSION['username'];
 $stmt = $conn->prepare("SELECT * FROM Users WHERE email = ?");
@@ -41,14 +38,14 @@ if (!empty($errors)) {
     foreach ($errors as $error) {
         echo "<h1 class='error'>$error</h1>";
     }
-    header("Refresh:2, url=../Registration-login/Form.php");
+    header("Refresh:2, url=../Registration-login/Form.php"); 
     exit();
 }
 ?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <title>Login</title>
+    <title>PA - Profilo</title>
     <link rel="stylesheet" type="text/css" href="profileStyle.css">
     <link rel="icon" href="../Logo32.ico" type="image/x-icon">
     <script src="showProfileScript.js"></script>
@@ -61,7 +58,7 @@ if (!empty($errors)) {
         <div class="content">
             <div class="title">
                 <h1>Il Tuo Spazio Personale - Parkour Academy</h1>
-                <p>Benvenuto, <?php echo htmlentities($name . " " . $surname); ?>!</p>
+                <p>Benvenuto, <?php echo htmlentities($name . " " . $surname); ?>!</p> 
             </div>
             <div class="profileContainer">
                 <div class="userSection" id="imageSection">
@@ -73,7 +70,7 @@ if (!empty($errors)) {
                     <div class="nameSurname"><?php echo htmlentities($name . " " . $surname); ?></div>
                     <div class="description">
                         <p class="descriptionText"><b>Email</b>: <?php echo htmlentities($email); ?></p>
-                        <hr class="descriptionLine">
+                        <hr class="descriptionLine"> 
                         <?php
                             
                             if(htmlentities($età) != NULL) {

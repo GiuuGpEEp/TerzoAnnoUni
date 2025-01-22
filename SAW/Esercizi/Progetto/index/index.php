@@ -5,7 +5,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
     <head>
         <title>Parkour Academy</title>
         <link rel="stylesheet" type="text/css" href="style.css">
@@ -76,9 +76,16 @@
                 </div>
             </div>
             <div id="SubsSection">
-                <p id="subsTitle" class="Sottotitoli"> Unisciti a noi per un'avventura entusiasmante nel parkour </p>
-                <p id="subsDescription" class="Descrizioni"> A prescindere se tu sia già membro o meno iscriviti alla newsletter per poter restare aggiornato su tutte le novità</p>
-                <button id="subsButton" type="button" onclick="">Iscriviti Ora</button>
+                <?php if(!isset($_SESSION['username'])){
+                    echo "<p id='subsTitle' class='Sottotitoli'> Unisciti a noi per un'avventura entusiasmante nel parkour </p>";
+                    echo "<p id='subsDescription' class='Descrizioni'> Iscriviti per far parte del gruppo, e allenarti con noi </p>";
+                    echo "<button id='subsButton' type='button' onclick='goRegistration()'>Iscriviti Ora</button>";
+                }else{
+                    echo "<p id='subsTitle' class='Sottotitoli'> Benvenuto, ".$_SESSION['username']." </p>";
+                    echo "<p id='subsDescription' class='Descrizioni'> Grazie per far parte anche tu del nostro gruppo. Visualizza il tuo profilo </p>";
+                    echo "<button id='subsButton' type='button' onclick='goProfile()'>Profilo</button>";
+                }
+                ?>    
             </div>
         </div>
         <?php include '../Footer/footer.php'; ?>

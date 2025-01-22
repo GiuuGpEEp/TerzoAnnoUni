@@ -4,7 +4,7 @@ CREATE TABLE prenotazioni (
     email VARCHAR(255) NOT NULL,
     data_prenotazione TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (corso_id) REFERENCES corsi(id) ON DELETE CASCADE,
-    FOREIGN KEY (email) REFERENCES users(email) ON DELETE CASCADE
+    FOREIGN KEY (email) REFERENCES Users(email) ON DELETE CASCADE
 );
 
 

@@ -25,7 +25,7 @@
             text-align: center;
         }
 
-        h1 {
+        h1 { /*Da levare*/
             color: green;
             text-align: center;
             margin-top: 20px;
@@ -64,7 +64,7 @@
         </header>
         <div class="content">
             <h1 class="error">Ancora nessun evento disponibile, Under construction</h1>
-            <p class="error"></p>
+            <p class="error"></p> <!-- Da levare -->
         </div>
         <?php include '../Footer/footer.php'; ?>
         

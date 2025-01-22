@@ -23,14 +23,14 @@ if (isset($_GET['get_course']) || isset($_GET['search'])) {
         $searchTerm = $_GET['search'];
         $searchTerm = htmlspecialchars($searchTerm);
         $searchTerm = "%" . $searchTerm . "%";  //%search% mi permette di cercare tutte le parole che contengono search e non che sono uguali a search (usato spesso con like)
-        $stmt = $conn->prepare("SELECT * FROM Corsi WHERE giorno LIKE ? OR calendario LIKE ?");
+        $stmt = $conn->prepare("SELECT * FROM corsi WHERE giorno LIKE ? OR calendario LIKE ?");
         $stmt->bind_param("ss", $searchTerm, $searchTerm);
     }
     else {
-        $stmt = $conn->prepare("SELECT * FROM Corsi");
+        $stmt = $conn->prepare("SELECT * FROM corsi");
     }
 
-    $corsi = [];
+    $corsi = array();
     if ($stmt->execute()) {
         $result = $stmt->get_result();
         if ($result->num_rows > 0) {
@@ -78,7 +78,7 @@ if (isset($_GET['get_course']) || isset($_GET['search'])) {
 <body>
     <div class="wrapper">
         <header class="header">
-            <?php include '../Navbar/navbar.php'; ?>
+            <?php include '../NavBar/NavBar.php'; ?>
         </header>
         <div class="content">
             <div class="title">

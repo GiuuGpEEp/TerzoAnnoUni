@@ -1,14 +1,14 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
-    window.alert("Effettua il login per accedere a questa pagina.");
+    echo "<script>window.alert('Effettua il login per accedere a questa pagina.');</script>";
     header("Location: ../Registration-login/Form.php");
     exit();
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
-    $errors = [];
+    $errors = array();
 
     $firstname =htmlentities(trim($_POST["firstname"]));
     $lastname = htmlentities(trim($_POST["lastname"]));
@@ -24,17 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     
     if(empty ($errors)){
 
-        $conn = mysqli_connect("localhost", "root", "", "bozzadb");
-        if (!$conn) {
-            die("Connessione al database fallita: " . mysqli_connect_error());
-        }
-        
-        $firstname = mysqli_real_escape_string($conn, $firstname);
-        $lastname = mysqli_real_escape_string($conn, $lastname);
-        $email = mysqli_real_escape_string($conn, $email);
-        $età = mysqli_real_escape_string($conn, $età);
-        $genere = mysqli_real_escape_string($conn, $genere);
-        $descrizione = mysqli_real_escape_string($conn, $descrizione);
+        include '../dbConnection.php';
 
         $username = $_SESSION['username'];
         $stmt = $conn->prepare("UPDATE Users SET firstname= ?, lastname= ?, email= ?, descrizione= ?, età= ?, genere= ? WHERE email = ?");
@@ -77,9 +67,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrazione</title>
+
+    <title>PA - Modifica del Profilo</title>
     <style>
         body {
             font-family: Arial, sans-serif;

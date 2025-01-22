@@ -1,6 +1,6 @@
 <style>
 
-    .Sfooter { 
+    .StickyFooter { 
         color: #fff; 
         text-align: center;
         font-family: Arial, sans-serif;
@@ -13,7 +13,7 @@
         margin-bottom: 20px;  
         background-color: #2c3e50; 
         margin: 0;
-        flex-shrink: 0;
+        flex-shrink: 0; /*puó essere levato*/ 
     }
     
     #footerButton{
@@ -59,7 +59,7 @@
 
 </style>
 
-<footer class="Sfooter">
+<footer class="StickyFooter">
     <div class="footerContent">
         <p class="footerContent"><span id="footerTitle">Hai bisogno di aiuto?</span></p>
         <a id="footerButton" class="button" href="../ContactUs/contact.php" type="button">Contattaci</a>

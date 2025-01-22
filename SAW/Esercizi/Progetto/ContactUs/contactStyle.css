@@ -29,7 +29,7 @@ html, body {
 }
 
 .button {
-    background-color: #ff7962; /* Arancione */
+    background-color: #ff7962; 
     border: none;
     color: white;
     text-align: center;
@@ -44,7 +44,7 @@ html, body {
 }
 
 .button:hover {
-    background-color: #941600; /* Arancione scuro */
+    background-color: #941600; 
 }
 
 .formTitle {
@@ -99,8 +99,6 @@ input[type="text"], input[type="password"], input[type="email"] {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box; 
-  
-   /* Include padding e border nella larghezza */
     margin-bottom: 10px;
     background-color: #f0f8ff; 
 }
@@ -138,7 +136,7 @@ textarea{
 .whatsapp{
     margin-bottom: 5px;
     color:rgb(11, 146, 11);
-    width: 150px; /* Larghezza fissa */
+    width: 150px; 
 }
 
 .facebook{
@@ -180,7 +178,7 @@ textarea{
     float: right; 
     margin-top: 5px;
     text-decoration: none;
-    color: #d34836;
+    color: #4278e3;
 }
 
 

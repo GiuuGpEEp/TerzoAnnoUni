@@ -91,13 +91,13 @@ function checkLogin(){
     }
 
     const password = document.getElementById("loginPass").value.trim();
-    if (!password || password.length < 8) {
+    if (!password || password.length < 8) { /*Non basta !password?*/ 
         showError("loginErrorPass");
     }
 
     if (isValid) {
         window.alert("Form inviato!");
-        document.getElementById("registrationForm").submit();
+        document.getElementById("registrationForm").submit(); /*Dove é registrationForm?*/
     } else {
         window.alert("Errore nell'invio del Form: Controlla i campi!");
     }

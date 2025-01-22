@@ -18,3 +18,11 @@ function goCorsi(){
 function goEventi(){
     window.location.href = "../Eventi/eventi.php";
 }
+
+function goRegistration(){
+    window.location.href = "../Registration-login/Form.php";
+}
+
+function goProfile(){
+    window.location.href = "../ShowProfile/show_profile.php";
+}

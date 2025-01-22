@@ -1,17 +1,14 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
-    window.alert("Effettua il login per accedere a questa pagina.");
+    echo "<script>window.alert('Effettua il login per accedere a questa pagina.');</script>";
     header("Location: ../Registration-login/Form.php");
     exit();
 }
 
-$errors = [];
-$conn = mysqli_connect("localhost", "root", "", "bozzadb");
+$errors = array();
 
-if (!$conn) {
-    die("Connessione al database fallita: " . mysqli_connect_error());
-}
+include '../dbConnection.php';
 
 $username = $_SESSION['username'];
 $stmt = $conn->prepare("SELECT * FROM Users WHERE email = ?");
@@ -49,7 +46,7 @@ if (!empty($errors)) {
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <title>Login</title>
+    <title>PA - Modifica del Profilo</title>
     <link rel="stylesheet" type="text/css" href="profileStyle.css">
     <link rel="icon" href="../Logo32.ico" type="image/x-icon">
     <script src="showProfileScript.js"></script>

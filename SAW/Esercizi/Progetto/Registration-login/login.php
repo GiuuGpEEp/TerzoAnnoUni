@@ -1,10 +1,10 @@
 <?php
 session_start();
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
-    $email = trim($_POST["email"]);
-    $password = trim($_POST["pass"]);
+    $email = htmlentities(trim($_POST["email"]));
+    $password = htmlentities(trim($_POST["pass"]));
 
-    $errors = [];
+    $errors = array();
 
     // Validazione dei campi
     if (empty($email)) { $errors[] = "L'email è obbligatoria."; }
@@ -13,13 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
 
     if (empty($errors)) {
         // Connessione al database
-        $conn = mysqli_connect("localhost", "root", "", "bozzadb");
-        if (!$conn) {
-            die("Connessione al database fallita: " . mysqli_connect_error());
-        }
+        
+        include '../dbConnection.php';
 
         // Query combinata per email e password
-        $stmt = $conn->prepare("SELECT email, password FROM Users WHERE email = ?");
+        $stmt = $conn->prepare("SELECT email, password, role FROM Users WHERE email = ?");
         $stmt->bind_param("s", $email);
 
         if ($stmt->execute()) {
@@ -33,6 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
                     $errors[] = "Password errata.";
                 }   
                 
+                if ($user['email'] === 'parkouracademy.admin@gmail.com') {
+                    $user['role'] = 'admin';
+                }
+
             } else {
                 $errors[] = "Email non registrata.";
             }
@@ -41,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         }
         if(empty($errors)){
             $_SESSION['username'] = $user['email'];
+            $_SESSION['role'] = $user['role'];
         }
         $stmt->close();
         $conn->close();
@@ -49,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     // Mostra gli errori
     if (!empty($errors)) {
         foreach ($errors as $error) {
-            echo "<h1 class='error'>$error</p>";
+            echo "<h1 class='error'>" . htmlentities($error) . "</h1>";
             header("Refresh:2, url=Form.php");
         }
     } else {
@@ -57,16 +60,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         echo "<p>Se tra meno di 5 secondi non vieni reindirizzato alla pagina, clicca <a href='../ShowProfile/show_profile.php'>qui</a> </p>";
         header("Refresh:2, url=../ShowProfile/show_profile.php");
     }
-    
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <style>
         body {
