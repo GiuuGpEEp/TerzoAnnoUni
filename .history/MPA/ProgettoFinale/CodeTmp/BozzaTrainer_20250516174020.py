@@ -167,7 +167,14 @@ red_real = sum(y_test == 0)
 blue_pred = sum(y_pred == 1)
 red_pred = sum(y_pred == 0)
 
-print("\n=== MATRICE DI CONFUSIONE ===")
+print("\n=== STATISTICHE DETTAGLIATE ===")
+print(f"Vittorie reali squadra blue     → {blue_real}")
+print(f"Vittorie reali squadra red      → {red_real}")
+print(f"Vittorie predette squadra blue  → {blue_pred}")
+print(f"Vittorie predette squadra red   → {red_pred}")
+
+print
+
 # Confusion Matrix
 cm = confusion_matrix(y_test, y_pred)
 

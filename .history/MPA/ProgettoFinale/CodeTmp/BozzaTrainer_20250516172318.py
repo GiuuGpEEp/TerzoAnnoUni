@@ -136,18 +136,12 @@ def extract_features(row):
 
 # Caricamento del dataset
 df = pd.read_excel('../Datitraining.xlsx')
-print(f"Numero righe nel file originale: {len(df)}")
 
 # Applica estrazione feature
 features_df = df.apply(extract_features, axis=1)
-print(f"Numero righe dopo estrazione feature (con eventuali NaN): {len(features_df)}")
 
-# Elimina righe con NaN
-features_df = features_df.dropna()
-print(f"Numero righe dopo dropna: {len(features_df)}")
-
-# Allinea le etichette alle righe valide
-labels = df["bResult"].loc[features_df.index]
+# Label target: 1 se vince blue, 0 se vince red
+labels = df["bResult"]
 
 # Split train/test
 X_train, X_test, y_train, y_test = train_test_split(features_df, labels, test_size=0.2, random_state=42)
@@ -158,16 +152,8 @@ model.fit(X_train, y_train)
 
 # Valutazione
 y_pred = model.predict(X_test)
-print("\n=== CLASSIFICATION REPORT ===")
 print(classification_report(y_test, y_pred))
 
-# Output esplicativi aggiuntivi
-blue_real = sum(y_test == 1)
-red_real = sum(y_test == 0)
-blue_pred = sum(y_pred == 1)
-red_pred = sum(y_pred == 0)
-
-print("\n=== MATRICE DI CONFUSIONE ===")
 # Confusion Matrix
 cm = confusion_matrix(y_test, y_pred)
 

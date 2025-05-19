@@ -167,21 +167,11 @@ red_real = sum(y_test == 0)
 blue_pred = sum(y_pred == 1)
 red_pred = sum(y_pred == 0)
 
-print("\n=== MATRICE DI CONFUSIONE ===")
-# Confusion Matrix
-cm = confusion_matrix(y_test, y_pred)
+print("\n=== STATISTICHE DETTAGLIATE ===")
+print(f"Vittorie reali squadra blue     → {blue_real}")
+print(f"Vittorie reali squadra red      → {red_real}")
+print(f"Vittorie predette squadra blue  → {blue_pred}")
+print(f"Vittorie predette squadra red   → {red_pred}")
 
-# cm è una matrice 2x2: [[TN, FP], [FN, TP]]
-tn, fp, fn, tp = cm.ravel()
 
-print("\n--- Risultato dettagliato ---")
-print(f"🔵 Vittorie reali squadra BLUE (classe 1): {sum(y_test == 1)}")
-print(f"🔴 Vittorie reali squadra RED  (classe 0): {sum(y_test == 0)}")
 
-print(f"✅ Vittorie BLUE predette correttamente (True Positives): {tp}")
-print(f"❌ Vittorie BLUE predette ma era RED (False Positives): {fp}")
-
-print(f"✅ Vittorie RED predette correttamente (True Negatives): {tn}")
-print(f"❌ Vittorie RED predette ma era BLUE (False Negatives): {fn}")
-
-print(f"\n🎯 Accuratezza totale: {(tp + tn) / (tp + tn + fp + fn):.2f}")
