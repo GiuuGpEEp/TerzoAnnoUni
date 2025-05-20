@@ -6,6 +6,7 @@ from sklearn.preprocessing import StandardScaler
 from xgboost import XGBClassifier
 from sklearn.metrics import classification_report, confusion_matrix
 
+# (Mantieni qui tutte le tue funzioni di parsing feature esattamente come prima...)
 # =====================
 # Feature extraction helpers
 # =====================
@@ -156,9 +157,9 @@ labels = df["bResult"]
 X_train, X_test, y_train, y_test = train_test_split(features_df, labels, test_size=0.2, random_state=42)
 
 # Normalizzazione
-scaler = StandardScaler()
-X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.transform(X_test)
+#scaler = StandardScaler()
+#X_train_scaled = scaler.fit_transform(X_train)
+#X_test_scaled = scaler.transform(X_test)
 
 # Setup modello base
 xgb = XGBClassifier(eval_metric="logloss")

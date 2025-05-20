@@ -1,11 +1,12 @@
 import ast
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.preprocessing import StandardScaler
 from xgboost import XGBClassifier
 from sklearn.metrics import classification_report, confusion_matrix
-from sklearn.preprocessing import StandardScaler
 
+# (Mantieni qui tutte le tue funzioni di parsing feature esattamente come prima...)
 # =====================
 # Feature extraction helpers
 # =====================
@@ -68,6 +69,11 @@ def parse_tower_list_detailed(tower_raw, prefix):
     return stats
 
 def parse_event_list_simple(event_raw, prefix, event_name):
+    """Conta quanti eventi accadono nei primi 10 minuti.
+       event_raw è una lista o stringa di minutaggi (float o str).
+       prefix è 'b' o 'r'.
+       event_name es. 'kills', 'dragons'.
+    """
     count = 0
     if isinstance(event_raw, str):
         try:
@@ -85,80 +91,101 @@ def parse_event_list_simple(event_raw, prefix, event_name):
 
     return {f"{prefix}_{event_name}_10min": count}
 
-# =====================
-# Feature extraction (base + arricchimento)
-# =====================
+
 def extract_features(row):
     features = {}
 
+    # Gold diff media e valore minuto 10
     gold_diff = row.get("goldDiff", [])
     if isinstance(gold_diff, str):
         try:
             gold_diff = ast.literal_eval(gold_diff)
-        except:
+        except (ValueError, SyntaxError):
             gold_diff = []
-
     if isinstance(gold_diff, list) and len(gold_diff) > 0:
         first_10 = gold_diff[:10] if len(gold_diff) >= 10 else gold_diff
         try:
-            features["avg_gold_diff_10min"] = np.mean(first_10)
-            features["gold_diff_min10"] = first_10[9] if len(first_10) >= 10 else first_10[-1]
-            features["gold_diff_std_10min"] = np.std(first_10)
-            features["gold_diff_slope"] = (first_10[-1] - first_10[0]) / len(first_10) if len(first_10) > 1 else 0
+            features["avg_gold_diff_10min"] = np.mean(gold_diff[:10])
+            features["gold_diff_min10"] = gold_diff[9] if len(gold_diff) >= 10 else gold_diff[-1]
         except:
-            features.update({"avg_gold_diff_10min": 0, "gold_diff_min10": 0, "gold_diff_std_10min": 0, "gold_diff_slope": 0})
+            features["avg_gold_diff_10min"] = 0
+            features["gold_diff_min10"] = 0
     else:
-        features.update({"avg_gold_diff_10min": 0, "gold_diff_min10": 0, "gold_diff_std_10min": 0, "gold_diff_slope": 0})
+        features["avg_gold_diff_10min"] = 0
+        features["gold_diff_min10"] = 0
 
+    # Kill
     features.update(parse_event_list_simple(row.get("bKills", []), "b", "kills"))
     features.update(parse_event_list_simple(row.get("rKills", []), "r", "kills"))
+
+    # Draghi
     features.update(parse_event_list_simple(row.get("bDragons", []), "b", "dragons"))
     features.update(parse_event_list_simple(row.get("rDragons", []), "r", "dragons"))
 
+    # Torri
     b_tower_stats = parse_tower_list_detailed(row.get("bTowers", []), "b")
     r_tower_stats = parse_tower_list_detailed(row.get("rTowers", []), "r")
     features.update(b_tower_stats)
     features.update(r_tower_stats)
 
-    # Feature arricchite
-    features["b_kill_tower_ratio"] = features["b_kills_10min"] / (b_tower_stats["b_towers_10min"] + 1)
-    features["r_kill_tower_ratio"] = features["r_kills_10min"] / (r_tower_stats["r_towers_10min"] + 1)
+    ## Rapporto kill/tower (con gestione zero division)
+    #b_kills_10min = features.get("b_kills_10min", 0)
+    #r_kills_10min = features.get("r_kills_10min", 0)
+    #b_towers_10min = features.get("b_towers_10min", 0)
+    #r_towers_10min = features.get("r_towers_10min", 0)
+#
+    #features["b_kills_towers_ratio"] = b_kills_10min / b_towers_10min if b_towers_10min > 0 else 0
+    #features["r_kills_towers_ratio"] = r_kills_10min / r_towers_10min if r_towers_10min > 0 else 0
 
     return pd.Series(features)
 
-# =====================
-# Caricamento e pre-processing
-# =====================
+
+# -------------------
+# Pipeline principale
+# -------------------
+
+# Caricamento dati
 df = pd.read_excel('../Datitraining.xlsx')
+
+# Estrazione feature
 features_df = df.apply(extract_features, axis=1)
-print("Numero righe nel file originale:", len(df))
-print("Numero righe dopo estrazione feature (con eventuali NaN):", len(features_df))
-features_df = features_df.dropna()
-print("Numero righe dopo dropna:", len(features_df))
-labels = df.loc[features_df.index, "bResult"]
+
+# Labels
+labels = df["bResult"]
+
+# Split
+X_train, X_test, y_train, y_test = train_test_split(features_df, labels, test_size=0.2, random_state=42)
 
 # Normalizzazione
 scaler = StandardScaler()
-features_scaled = scaler.fit_transform(features_df)
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
 
-# Train/Test Split
-X_train, X_test, y_train, y_test = train_test_split(features_scaled, labels, test_size=0.2, random_state=42)
+# Setup modello base
+xgb = XGBClassifier(eval_metric="logloss")
 
-# Addestramento
-model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
-model.fit(X_train, y_train)
+# Definizione grid di parametri da testare
+param_grid = {
+    'n_estimators': [50, 100, 150],
+    'max_depth': [3, 5, 7],
+    'learning_rate': [0.01, 0.1, 0.2],
+    'subsample': [0.7, 0.8, 1.0],
+    'colsample_bytree': [0.7, 0.8, 1.0]
+}
 
-# Predizione
-y_pred = model.predict(X_test)
-print("\n=== CLASSIFICATION REPORT ===")
+# GridSearch con cross-validation 5-fold
+grid_search = GridSearchCV(estimator=xgb, param_grid=param_grid, scoring='accuracy', cv=5, n_jobs=-1, verbose=1)
+
+# Fit
+grid_search.fit(X_train_scaled, y_train)
+
+print("Migliori parametri trovati:", grid_search.best_params_)
+
+# Valutazione con modello ottimizzato
+best_model = grid_search.best_estimator_
+y_pred = best_model.predict(X_test_scaled)
+
 print(classification_report(y_test, y_pred))
-
-# Statistiche
-print("\n=== STATISTICHE DETTAGLIATE ===")
-print(f"Vittorie reali squadra blue     → {sum(y_test == 1)}")
-print(f"Vittorie reali squadra red      → {sum(y_test == 0)}")
-print(f"Vittorie predette squadra blue  → {sum(y_pred == 1)}")
-print(f"Vittorie predette squadra red   → {sum(y_pred == 0)}")
 
 # Matrice di Confusione
 conf = confusion_matrix(y_test, y_pred)

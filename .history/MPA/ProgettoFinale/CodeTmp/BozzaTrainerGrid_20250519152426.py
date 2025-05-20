@@ -6,6 +6,7 @@ from sklearn.preprocessing import StandardScaler
 from xgboost import XGBClassifier
 from sklearn.metrics import classification_report, confusion_matrix
 
+# (Mantieni qui tutte le tue funzioni di parsing feature esattamente come prima...)
 # =====================
 # Feature extraction helpers
 # =====================
@@ -127,14 +128,14 @@ def extract_features(row):
     features.update(b_tower_stats)
     features.update(r_tower_stats)
 
-    ## Rapporto kill/tower (con gestione zero division)
-    #b_kills_10min = features.get("b_kills_10min", 0)
-    #r_kills_10min = features.get("r_kills_10min", 0)
-    #b_towers_10min = features.get("b_towers_10min", 0)
-    #r_towers_10min = features.get("r_towers_10min", 0)
+    # Rapporto kill/tower (con gestione zero division)
+    b_kills_10min = features.get("b_kills_10min", 0)
+    r_kills_10min = features.get("r_kills_10min", 0)
+    b_towers_10min = features.get("b_towers_10min", 0)
+    r_towers_10min = features.get("r_towers_10min", 0)
 
-    #features["b_kills_towers_ratio"] = b_kills_10min / b_towers_10min if b_towers_10min > 0 else 0
-    #features["r_kills_towers_ratio"] = r_kills_10min / r_towers_10min if r_towers_10min > 0 else 0
+    features["b_kills_towers_ratio"] = b_kills_10min / b_towers_10min if b_towers_10min > 0 else 0
+    features["r_kills_towers_ratio"] = r_kills_10min / r_towers_10min if r_towers_10min > 0 else 0
 
     return pd.Series(features)
 

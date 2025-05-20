@@ -6,6 +6,7 @@ from sklearn.preprocessing import StandardScaler
 from xgboost import XGBClassifier
 from sklearn.metrics import classification_report, confusion_matrix
 
+# (Mantieni qui tutte le tue funzioni di parsing feature esattamente come prima...)
 # =====================
 # Feature extraction helpers
 # =====================
@@ -99,10 +100,9 @@ def extract_features(row):
     if isinstance(gold_diff, str):
         try:
             gold_diff = ast.literal_eval(gold_diff)
-        except (ValueError, SyntaxError):
+        except:
             gold_diff = []
     if isinstance(gold_diff, list) and len(gold_diff) > 0:
-        first_10 = gold_diff[:10] if len(gold_diff) >= 10 else gold_diff
         try:
             features["avg_gold_diff_10min"] = np.mean(gold_diff[:10])
             features["gold_diff_min10"] = gold_diff[9] if len(gold_diff) >= 10 else gold_diff[-1]
@@ -127,14 +127,14 @@ def extract_features(row):
     features.update(b_tower_stats)
     features.update(r_tower_stats)
 
-    ## Rapporto kill/tower (con gestione zero division)
-    #b_kills_10min = features.get("b_kills_10min", 0)
-    #r_kills_10min = features.get("r_kills_10min", 0)
-    #b_towers_10min = features.get("b_towers_10min", 0)
-    #r_towers_10min = features.get("r_towers_10min", 0)
+    # Rapporto kill/tower (con gestione zero division)
+    b_kills_10min = features.get("b_kills_10min", 0)
+    r_kills_10min = features.get("r_kills_10min", 0)
+    b_towers_10min = features.get("b_towers_10min", 0)
+    r_towers_10min = features.get("r_towers_10min", 0)
 
-    #features["b_kills_towers_ratio"] = b_kills_10min / b_towers_10min if b_towers_10min > 0 else 0
-    #features["r_kills_towers_ratio"] = r_kills_10min / r_towers_10min if r_towers_10min > 0 else 0
+    features["b_kills_towers_ratio"] = b_kills_10min / b_towers_10min if b_towers_10min > 0 else 0
+    features["r_kills_towers_ratio"] = r_kills_10min / r_towers_10min if r_towers_10min > 0 else 0
 
     return pd.Series(features)
 

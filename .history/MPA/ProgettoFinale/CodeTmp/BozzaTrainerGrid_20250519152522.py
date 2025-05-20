@@ -6,6 +6,7 @@ from sklearn.preprocessing import StandardScaler
 from xgboost import XGBClassifier
 from sklearn.metrics import classification_report, confusion_matrix
 
+# (Mantieni qui tutte le tue funzioni di parsing feature esattamente come prima...)
 # =====================
 # Feature extraction helpers
 # =====================
